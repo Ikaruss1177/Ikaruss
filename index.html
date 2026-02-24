@@ -50,7 +50,9 @@
             window.EJS_core = params.get('core');
             window.EJS_gameUrl = params.get('rom');
             window.EJS_pathtodata = 'data/';
-            window.EJS_biosUrl = base + 'nmk004.zip';
+            if (params.get('core') === 'arcade') {
+                window.EJS_biosUrl = base + 'nmk004.zip';
+            }
         }
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
