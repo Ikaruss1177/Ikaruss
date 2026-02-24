@@ -51,7 +51,7 @@
             window.EJS_player = '#game';
             window.EJS_core = params.get('core');
             window.EJS_gameUrl = params.get('rom');
-            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+            window.EJS_pathtodata = 'data/';
             window.EJS_biosUrl = base + 'nmk004.zip';
         }
 
@@ -77,6 +77,6 @@
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
     </script>
-    <script src='https://cdn.emulatorjs.org/stable/data/loader.js'></script>
+    <script src='data/loader.js'></script>
 </body>
 </html>
