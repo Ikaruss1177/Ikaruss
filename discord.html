@@ -31,17 +31,18 @@
     </div>
 
     <script>
+        const base = 'https://ikaruss1177.github.io/EMULADORES/';
         const juegos = {
             nes: [
-                { nombre: 'SDF Macross', archivo: 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
+                { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
             ],
             snes: [
-                { nombre: 'Macross Scrambled Valkyrie', archivo: 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(J).smc', core: 'snes' }
+                { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(J).smc', core: 'snes' }
             ],
             mame: [
-                { nombre: 'Super Space Fortress Macross', archivo: 'macross.zip', core: 'arcade' },
-                { nombre: 'Macross II', archivo: 'macross2.zip', core: 'arcade' },
-                { nombre: 'Macross Plus', archivo: 'macrossp.zip', core: 'arcade' }
+                { nombre: 'Super Space Fortress Macross', archivo: base + 'macross.zip', core: 'arcade' },
+                { nombre: 'Macross II', archivo: base + 'macross2.zip', core: 'arcade' },
+                { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' }
             ]
         };
 
@@ -67,7 +68,7 @@
             window.EJS_core = juego.core;
             window.EJS_gameUrl = juego.archivo;
             window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-            window.EJS_biosUrl = 'nmk004.zip';
+            window.EJS_biosUrl = base + 'nmk004.zip';
 
             var script = document.createElement('script');
             script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js?t=' + Date.now();
