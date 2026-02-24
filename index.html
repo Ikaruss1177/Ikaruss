@@ -27,9 +27,8 @@
         </div>
     </div>
     <div id="emulador"></div>
-
     <script>
-        const base = 'https://ikaruss1177.github.io/EMULADORES/';
+        const base = 'https://ikaruss1177.github.io/Ikaruss/';
         const juegos = {
             nes: [
                 { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
@@ -43,7 +42,6 @@
                 { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' }
             ]
         };
-
         const params = new URLSearchParams(window.location.search);
         if (params.get('core') && params.get('rom')) {
             document.getElementById('menu').style.display = 'none';
@@ -54,7 +52,6 @@
             window.EJS_pathtodata = 'data/';
             window.EJS_biosUrl = base + 'nmk004.zip';
         }
-
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
             const selectJuego = document.getElementById('juego');
@@ -65,7 +62,6 @@
                 });
             }
         }
-
         function cargarJuego() {
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
@@ -73,7 +69,6 @@
             const juego = juegos[consola][idx];
             window.location.href = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
         }
-
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
     </script>
