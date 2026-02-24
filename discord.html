@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin:0; background:#000; color:#FFD700; font-family:arial; }
+        h1 { text-align:center; padding:10px; }
+        #selector { text-align:center; padding:10px; }
+        select { background:#111; color:#FFD700; padding:5px; font-size:16px; margin:5px; }
+        button { background:#FFD700; color:#000; padding:8px 20px; font-size:16px; cursor:pointer; border:none; }
+        #emulador { display:flex; justify-content:center; margin-top:10px; }
+    </style>
+</head>
+<body>
+    <h1>Emuladores Macross</h1>
+    <div id="selector">
+        <select id="consola">
+            <option value="">Selecciona consola</option>
+            <option value="nes">NES</option>
+            <option value="snes">SNES</option>
+            <option value="mame">MAME</option>
+        </select>
+        <select id="juego">
+            <option value="">Selecciona juego</option>
+        </select>
+        <button id="btnJugar">Jugar</button>
+    </div>
+    <div id="emulador">
+        <div style="width:640px;height:480px;">
+            <div id="game"></div>
+        </div>
+    </div>
+
+    <script>
+        const juegos = {
+            nes: [
+                { nombre: 'SDF Macross', archivo: 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
+            ],
+            snes: [
+                { nombre: 'Macross Scrambled Valkyrie', archivo: 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(J).smc', core: 'snes' }
+            ],
+            mame: [
+                { nombre: 'Super Space Fortress Macross', archivo: 'macross.zip', core: 'arcade' },
+                { nombre: 'Macross II', archivo: 'macross2.zip', core: 'arcade' },
+                { nombre: 'Macross Plus', archivo: 'macrossp.zip', core: 'arcade' }
+            ]
+        };
+
+        function actualizarJuegos() {
+            const consola = document.getElementById('consola').value;
+            const selectJuego = document.getElementById('juego');
+            selectJuego.innerHTML = '<option value="">Selecciona juego</option>';
+            if (consola && juegos[consola]) {
+                juegos[consola].forEach((j, i) => {
+                    selectJuego.innerHTML += '<option value="' + i + '">' + j.nombre + '</option>';
+                });
+            }
+        }
+
+        function cargarJuego() {
+            const consola = document.getElementById('consola').value;
+            const idx = document.getElementById('juego').value;
+            if (!consola || idx === '') return;
+            const juego = juegos[consola][idx];
+
+            document.getElementById('game').innerHTML = '';
+            window.EJS_player = '#game';
+            window.EJS_core = juego.core;
+            window.EJS_gameUrl = juego.archivo;
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+            window.EJS_biosUrl = 'nmk004.zip';
+
+            var script = document.createElement('script');
+            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js?t=' + Date.now();
+            document.body.appendChild(script);
+        }
+
+        document.getElementById('consola').addEventListener('change', actualizarJuegos);
+        document.getElementById('btnJugar').addEventListener('click', cargarJuego);
+    </script>
+</body>
+</html>
