@@ -44,7 +44,6 @@
             ]
         };
 
-        // Si hay parametros en la URL, carga el emulador directamente
         const params = new URLSearchParams(window.location.search);
         if (params.get('core') && params.get('rom')) {
             document.getElementById('menu').style.display = 'none';
@@ -54,9 +53,6 @@
             window.EJS_gameUrl = params.get('rom');
             window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
             window.EJS_biosUrl = base + 'nmk004.zip';
-            var script = document.createElement('script');
-            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
-            document.body.appendChild(script);
         }
 
         function actualizarJuegos() {
@@ -81,5 +77,6 @@
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
     </script>
+    <script src='https://cdn.emulatorjs.org/stable/data/loader.js'></script>
 </body>
 </html>
