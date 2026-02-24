@@ -12,24 +12,22 @@
 </head>
 <body>
     <h1>Emuladores Macross</h1>
-    <div id="selector">
-        <select id="consola">
-            <option value="">Selecciona consola</option>
-            <option value="nes">NES</option>
-            <option value="snes">SNES</option>
-            <option value="mame">MAME</option>
-        </select>
-        <select id="juego">
-            <option value="">Selecciona juego</option>
-        </select>
-        <button id="btnJugar" type="button">Jugar</button>
-    </div>
-    <div id="emulador">
-        <div style="width:640px;height:480px;">
-            <div id="game"></div>
+    <div id="menu">
+        <div id="selector">
+            <select id="consola">
+                <option value="">Selecciona consola</option>
+                <option value="nes">NES</option>
+                <option value="snes">SNES</option>
+                <option value="mame">MAME</option>
+            </select>
+            <select id="juego">
+                <option value="">Selecciona juego</option>
+            </select>
+            <button id="btnJugar" type="button">Jugar</button>
         </div>
     </div>
-    <script src='https://cdn.emulatorjs.org/stable/data/loader.js'></script>
+    <div id="emulador"></div>
+
     <script>
         const base = 'https://ikaruss1177.github.io/EMULADORES/';
         const juegos = {
@@ -45,6 +43,22 @@
                 { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' }
             ]
         };
+
+        // Si hay parametros en la URL, carga el emulador directamente
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('core') && params.get('rom')) {
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+            window.EJS_player = '#game';
+            window.EJS_core = params.get('core');
+            window.EJS_gameUrl = params.get('rom');
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
+            window.EJS_biosUrl = base + 'nmk004.zip';
+            var script = document.createElement('script');
+            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+            document.body.appendChild(script);
+        }
+
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
             const selectJuego = document.getElementById('juego');
@@ -55,18 +69,15 @@
                 });
             }
         }
+
         function cargarJuego() {
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
-            window.EJS_player = '#game';
-            window.EJS_core = juego.core;
-            window.EJS_gameUrl = juego.archivo;
-            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
-            window.EJS_biosUrl = base + 'nmk004.zip';
-            window.EJS_startOnLoaded = true;
+            window.location.href = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
         }
+
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
     </script>
