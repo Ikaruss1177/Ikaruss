@@ -53,6 +53,9 @@
             if (params.get('core') === 'arcade') {
                 window.EJS_biosUrl = base + 'nmk004.zip';
             }
+            var script = document.createElement('script');
+            script.src = 'data/loader.js';
+            document.body.appendChild(script);
         }
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
@@ -74,6 +77,5 @@
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
     </script>
-    <script src='data/loader.js'></script>
 </body>
 </html>
