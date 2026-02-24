@@ -22,14 +22,13 @@
         <select id="juego">
             <option value="">Selecciona juego</option>
         </select>
-        <button id="btnJugar">Jugar</button>
+        <button id="btnJugar" type="button">Jugar</button>
     </div>
     <div id="emulador">
         <div style="width:640px;height:480px;">
             <div id="game"></div>
         </div>
     </div>
-
     <script>
         const base = 'https://ikaruss1177.github.io/EMULADORES/';
         const juegos = {
@@ -45,7 +44,6 @@
                 { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' }
             ]
         };
-
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
             const selectJuego = document.getElementById('juego');
@@ -56,27 +54,26 @@
                 });
             }
         }
-
         function cargarJuego() {
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
-
             document.getElementById('game').innerHTML = '';
             window.EJS_player = '#game';
             window.EJS_core = juego.core;
             window.EJS_gameUrl = juego.archivo;
             window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';
             window.EJS_biosUrl = base + 'nmk004.zip';
-
             var script = document.createElement('script');
             script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js?t=' + Date.now();
             document.body.appendChild(script);
         }
-
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
-        document.getElementById('btnJugar').addEventListener('click', cargarJuego);
+        document.getElementById('btnJugar').addEventListener('click', function() {
+            alert('click detectado');
+            cargarJuego();
+        });
     </script>
 </body>
 </html>
