@@ -21,7 +21,10 @@
         <select id="juego">
             <option value="">Selecciona juego</option>
         </select>
-        <a id="btnJugar" href="#" style="background:#FFD700; color:#000; padding:8px 20px; font-size:16px; cursor:pointer; text-decoration:none; display:inline-block; margin:5px;">Jugar</a>
+        <select id="btnJugar">
+            <option value="">-- Jugar --</option>
+            <option value="jugar">Jugar ahora</option>
+        </select>
     </div>
     <div id="emulador">
         <div style="width:640px;height:480px;">
@@ -69,10 +72,8 @@
             document.body.appendChild(script);
         }
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
-        document.getElementById('btnJugar').addEventListener('click', function(e) {
-            e.preventDefault();
-            alert('click detectado');
-            cargarJuego();
+        document.getElementById('btnJugar').addEventListener('change', function() {
+            if (this.value === 'jugar') cargarJuego();
         });
     </script>
 </body>
