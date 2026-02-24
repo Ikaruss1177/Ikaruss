@@ -53,28 +53,26 @@
         const params = new URLSearchParams(window.location.search);
 
         if (params.get('core') && params.get('rom')) {
-            document.getElementById('menu').style.display = 'none'; // Oculta menú completo cuando carga juego
+            document.getElementById('menu').style.display = 'none';
             document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;position:relative;"><div id="game" style="width:100%;height:100%;"></div></div>';
             document.getElementById('btnVolver').style.display = 'block';
 
-            // Configuración EmulatorJS
             window.EJS_player = '#game';
             window.EJS_core = params.get('core');
             window.EJS_gameUrl = params.get('rom');
-            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/'; // Prioridad CDN estable
-            window.EJS_startButtonName = '¡Jugar Macross!'; // Botón más claro
-            window.EJS_alignStartButton = 'center'; // Centrado
+            // Prioridad CDN versión vieja (evita bug FBNeo 1.20+)
+            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/4.0.1/data/'; // Prueba 4.0.1 primero; si no va, cambia a 3.1.5
+            window.EJS_startButtonName = '¡Jugar Macross!';
+            window.EJS_alignStartButton = 'center';
 
             if (params.get('core') === 'arcade') {
                 window.EJS_biosUrl = params.get('bios');
             }
 
-            // Cargar loader con fallback
             var script = document.createElement('script');
-            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+            script.src = 'https://cdn.emulatorjs.org/4.0.1/data/loader.js';
             script.onerror = () => {
-                // Fallback a tu local si CDN falla (por si GitHub Pages tiene issues)
-                script.src = 'data/loader.js';
+                script.src = 'data/loader.js'; // Fallback local
                 document.body.appendChild(script);
                 document.getElementById('error').innerHTML = 'CDN falló, usando data local...';
                 document.getElementById('error').style.display = 'block';
@@ -106,7 +104,6 @@
             window.location.href = url;
         }
 
-        // Eventos
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
         document.getElementById('btnVolver').addEventListener('click', () => {
