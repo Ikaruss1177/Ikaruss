@@ -8,7 +8,7 @@
         select { background:#111; color:#FFD700; padding:5px; font-size:16px; margin:5px; }
         button { background:#FFD700; color:#000; padding:8px 20px; font-size:16px; cursor:pointer; border:none; }
         #emulador { display:flex; justify-content:center; margin-top:10px; }
-        #btnVolver { display:none; margin:10px auto; }  /* Botón para volver */
+        #btnVolver { display:none; margin:10px auto; }  /* Botón nuevo */
     </style>
 </head>
 <body>
@@ -46,24 +46,24 @@
         };
         const params = new URLSearchParams(window.location.search);
         if (params.get('core') && params.get('rom')) {
-            // No esconder menú completamente, solo mostrar emulador y botón volver
-            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;position:relative;"><div id="game" style="width:100%;height:100%;"></div></div>';
-            document.getElementById('btnVolver').style.display = 'block';  // Muestra botón
+            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+            document.getElementById('btnVolver').style.display = 'block';
 
-            // Variables para EmulatorJS con CDN
             window.EJS_player = '#game';
             window.EJS_core = params.get('core');
             window.EJS_gameUrl = params.get('rom');
-            window.EJS_pathtodata = 'https://cdn.emulatorjs.org/stable/data/';  // CDN oficial
+            window.EJS_pathtodata = 'data/';  // Vuelve a local como original, pero si no hay data/ usa CDN abajo
 
-            // BIOS para arcade
             if (params.get('core') === 'arcade') {
-                window.EJS_biosUrl = params.get('bios');  // Pasado como param
+                window.EJS_biosUrl = params.get('bios');
             }
 
-            // Carga loader desde CDN
             var script = document.createElement('script');
-            script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+            script.src = 'data/loader.js';  // Original local
+            script.onerror = () => {  // Si local falla, fallback a CDN
+                script.src = 'https://cdn.emulatorjs.org/stable/data/loader.js';
+                document.body.appendChild(script);
+            };
             document.body.appendChild(script);
         }
         function actualizarJuegos() {
@@ -82,37 +82,17 @@
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
             let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
-            if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);  // Pasa bios como param
+            if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);
             window.location.href = url;
         }
-        // Evento para volver al menú (sin recargar, solo limpia emulador)
         document.getElementById('btnVolver').addEventListener('click', () => {
-            document.getElementById('emulador').innerHTML = '';  // Limpia emulador
-            document.getElementById('btnVolver').style.display = 'none';  // Esconde botón
-            // Opcional: Reset selects si querés
+            document.getElementById('emulador').innerHTML = '';
+            document.getElementById('btnVolver').style.display = 'none';
             document.getElementById('consola').value = '';
             document.getElementById('juego').innerHTML = '<option value="">Selecciona juego</option>';
         });
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
-    </script>
-    <!-- Discord Embedded App SDK (agregá tu CLIENT_ID) -->
-    <script src="https://cdn.jsdelivr.net/npm/@discord/embedded-app-sdk@latest/dist/index.umd.js"></script>
-    <script>
-        const CLIENT_ID = '1475699322048741426';  // Reemplazá con el real
-        const discordSdk = new DiscordSDK(CLIENT_ID);
-        
-        discordSdk.ready().then(() => {
-            console.log('¡Emulador listo en Discord!');
-            // Opcional: Setear Rich Presence
-            // discordSdk.commands.SetActivity({ ... });
-        }).catch(err => console.error('SDK error:', err));
-        
-        // Detectar si está en Discord y ajustar (opcional, para fullscreen)
-        if (window.self !== window.top) {
-            document.body.style.margin = '0';
-            document.body.style.overflow = 'hidden';
-        }
     </script>
 </body>
 </html>
