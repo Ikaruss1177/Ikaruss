@@ -30,7 +30,7 @@
         </div>
     </div>
     <div id="emulador"></div>
-    <button id="btnVolver">Volver al Menú</button>
+    <button id="btnVolver">Volver al Menu</button>
 
     <script>
         const base = 'https://ikaruss1177.github.io/Ikaruss/';
@@ -39,7 +39,7 @@
                 { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
             ],
             snes: [
-                { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'https://github.com/Ikaruss1177/Ikaruss/blob/main/Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc', core: 'snes' }
+                { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc', core: 'snes' }
             ],
             mame: [
                 { nombre: 'Super Space Fortress Macross', archivo: base + 'macross.zip', core: 'arcade', bios: base + 'nmk004.zip' },
@@ -95,11 +95,7 @@
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
         document.getElementById('btnJugar').addEventListener('click', cargarJuego);
         document.getElementById('btnVolver').addEventListener('click', () => {
-            document.getElementById('emulador').innerHTML = '';
-            document.getElementById('btnVolver').style.display = 'none';
-            document.getElementById('menu').style.display = 'block';
-            document.getElementById('consola').value = '';
-            actualizarJuegos();
+            window.location.href = window.location.pathname;
         });
     </script>
 </body>
