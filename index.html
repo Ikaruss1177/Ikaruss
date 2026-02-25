@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Emuladores Macross</title>
+    <title>Ikaruss Retrogaming Zone</title>
     <style>
         body { margin:0; background:#000; color:#FFD700; font-family:arial; }
         h1 { text-align:center; padding:10px; margin:0; }
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h1>Emuladores Macross</h1>
+    <h1>Ikaruss Retrogaming Zone</h1>
     <div id="menu">
         <div id="selector">
             <select id="consola">
@@ -38,7 +38,8 @@
         const base = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Ikaruss/';
         const juegos = {
             nes: [
-                { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
+                { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' },
+                { nombre: 'Saint Seiya vs Los Caballeros del Zodiaco', archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu.nes', core: 'nes' }
             ],
             snes: [
                 { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc', core: 'snes' }
