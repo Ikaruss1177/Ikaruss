@@ -33,7 +33,7 @@
     <button id="btnVolver">Volver al Menu</button>
 
     <script>
-        const base = 'https://ikaruss1177.github.io/Ikaruss/';
+        const base = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Ikaruss/';
         const juegos = {
             nes: [
                 { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' }
