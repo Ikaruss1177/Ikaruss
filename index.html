@@ -21,6 +21,8 @@
                 <option value="">Selecciona consola</option>
                 <option value="nes">NES</option>
                 <option value="snes">SNES</option>
+                <option value="gbc">Game Boy Color</option>
+                <option value="genesis">Sega Genesis</option>
                 <option value="mame">MAME</option>
             </select>
             <select id="juego">
@@ -40,6 +42,15 @@
             ],
             snes: [
                 { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc', core: 'snes' }
+            ],
+            gbc: [
+                { nombre: 'Macross 7', archivo: base + 'Macross%207.gbc', core: 'gbc' }
+            ],
+            genesis: [
+                { nombre: 'Dragon Ball Z', archivo: base + 'DBZ.SMD', core: 'segaMD' },
+                { nombre: 'Jurassic Park', archivo: base + 'JURASSIC.SMD', core: 'segaMD' },
+                { nombre: 'El Mundo Perdido - Jurassic Park', archivo: base + 'LOSTWRLD.SMD', core: 'segaMD' },
+                { nombre: 'Sailor Moon', archivo: base + 'SAILORM.SMD', core: 'segaMD' }
             ],
             mame: [
                 { nombre: 'Super Space Fortress Macross', archivo: base + 'macross.zip', core: 'arcade' },
