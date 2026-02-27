@@ -84,27 +84,27 @@
                         {
                             disco: 1,
                             archivos: [
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.001',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.002',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.003',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.004',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.005',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.006'
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part000',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part001',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part002',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part003',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part004',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc1.part005'
                             ]
                         },
                         {
                             disco: 2,
                             archivos: [
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.001',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.002',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.003',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.004',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.005',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.006',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.007',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.008',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.009',
-                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.010'
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part000',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part001',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part002',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part003',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part004',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part005',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part006',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part007',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part008',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/disc2.part009'
                             ]
                         }
                     ]
@@ -169,47 +169,25 @@
                 </div>`;
             document.getElementById('btnVolver').style.display = 'block';
 
-            const discos = [];
+            const totalPartes = juego.partes.reduce((a, b) => a + b.archivos.length, 0);
+            let descargadas = 0;
+            const urls = [];
 
             for (let d = 0; d < juego.partes.length; d++) {
                 const disco = juego.partes[d];
                 const partes = [];
                 for (let i = 0; i < disco.archivos.length; i++) {
-                    const url = disco.archivos[i];
                     document.getElementById('progreso').textContent = `Descargando Disco ${disco.disco} - parte ${i+1} de ${disco.archivos.length}...`;
-                    document.getElementById('barra').style.width = ((d * disco.archivos.length + i) / (juego.partes.reduce((a,b) => a + b.archivos.length, 0))) * 100 + '%';
-                    const resp = await fetch(url);
-                    const buf = await resp.arrayBuffer();
-                    partes.push(new Uint8Array(buf));
+                    document.getElementById('barra').style.width = (descargadas / totalPartes * 100) + '%';
+                    const resp = await fetch(disco.archivos[i]);
+                    partes.push(await resp.arrayBuffer());
+                    descargadas++;
                 }
-                // Unir todas las partes
-                const totalSize = partes.reduce((a, b) => a + b.length, 0);
-                const joined = new Uint8Array(totalSize);
-                let offset = 0;
-                for (const p of partes) { joined.set(p, offset); offset += p.length; }
-                discos.push(joined);
-            }
-
-            document.getElementById('progreso').textContent = 'Descomprimiendo... esto puede tardar un momento';
-
-            // Descomprimir con 7z-wasm
-            const { createExtractorFromData } = await import('https://unpkg.com/node-7z-archive@1.0.2/dist/browser/index.js').catch(() => null);
-            
-            if (!createExtractorFromData) {
-                document.getElementById('progreso').textContent = 'Error al cargar descompresor. Intentando método alternativo...';
-                // Intentar con archivos CHD directamente si están disponibles
-                return;
-            }
-
-            const urls = [];
-            for (let d = 0; d < discos.length; d++) {
-                const extractor = await createExtractorFromData({ data: discos[d] });
-                const files = [...extractor.extract().files];
-                const file = files[0];
-                const blob = new Blob([file.extraction], { type: 'application/octet-stream' });
+                const blob = new Blob(partes, { type: 'application/octet-stream' });
                 urls.push(URL.createObjectURL(blob));
             }
 
+            document.getElementById('progreso').textContent = 'Iniciando emulador...';
             document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
             window.EJS_player = '#game';
             window.EJS_core = juego.core;
