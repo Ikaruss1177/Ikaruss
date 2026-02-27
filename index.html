@@ -129,9 +129,25 @@
             const idx = document.getElementById('juego').value;
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
-            let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(Array.isArray(juego.archivo) ? JSON.stringify(juego.archivo) : juego.archivo);
-            if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);
-            window.location.href = url;
+
+            if (Array.isArray(juego.archivo)) {
+                document.getElementById('header').style.display = 'none';
+                document.getElementById('menu').style.display = 'none';
+                document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+                document.getElementById('btnVolver').style.display = 'block';
+                window.EJS_player = '#game';
+                window.EJS_core = juego.core;
+                window.EJS_gameUrl = juego.archivo;
+                window.EJS_pathtodata = 'data/';
+                if (juego.bios) window.EJS_biosUrl = juego.bios;
+                var script = document.createElement('script');
+                script.src = 'data/loader.js';
+                document.body.appendChild(script);
+            } else {
+                let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
+                if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);
+                window.location.href = url;
+            }
         }
 
         document.getElementById('consola').addEventListener('change', actualizarJuegos);
