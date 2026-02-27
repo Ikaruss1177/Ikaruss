@@ -31,6 +31,7 @@
                 <option value="wonderswan">Bandai WonderSwan</option>
                 <option value="genesis">Sega Genesis</option>
                 <option value="mame">MAME Arcade</option>
+                <option value="psx">PlayStation</option>
             </select>
             <select id="juego">
                 <option value="">Selecciona juego</option>
@@ -73,6 +74,9 @@
                 { nombre: 'Macross II', archivo: base + 'macross2.zip', core: 'arcade' },
                 { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' },
                 { nombre: 'SDF Macross: Do You Remember Love?', archivo: base + 'macross.zip', core: 'arcade' }
+            ],
+            psx: [
+                { nombre: 'Macross: Do You Remember Love?', archivo: ['https://drive.google.com/uc?export=download&id=1dsqL7pb7LJrDx6PIO5m62bXnbeWDoO8N', 'https://drive.google.com/uc?export=download&id=1AQH7DpzyfKlaHRio07KVpr20Zb0pPV8Q'], core: 'psx', bios: 'https://drive.google.com/uc?export=download&id=1qgM8TVjrtv_AfqlW3IQG2NvSnBnf2vnE' }
             ]
         };
 
@@ -116,7 +120,7 @@
             const idx = document.getElementById('juego').value;
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
-            let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
+            let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(Array.isArray(juego.archivo) ? JSON.stringify(juego.archivo) : juego.archivo);
             if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);
             window.location.href = url;
         }
