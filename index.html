@@ -76,7 +76,39 @@
                 { nombre: 'SDF Macross: Do You Remember Love?', archivo: base + 'macross.zip', core: 'arcade' }
             ],
             psx: [
-                { nombre: 'Macross: Do You Remember Love?', archivo: ['https://github.com/Ikaruss1177/Ikaruss/releases/download/v1.1/Macross.-.Do.You.Remember.Love.Japan.Disc.1.SLPS-02005.chd', 'https://github.com/Ikaruss1177/Ikaruss/releases/download/v1.1/Macross.-.Do.You.Remember.Love.Japan.Disc.2.SLPS-02006.chd'], core: 'psx', bios: 'https://github.com/Ikaruss1177/Ikaruss/releases/download/v1.1/SCPH1001.BIN' }
+                { 
+                    nombre: 'Macross: Do You Remember Love?', 
+                    core: 'psx',
+                    bios: 'https://ikaruss1177.github.io/Ikaruss/psx/SCPH1001.BIN',
+                    partes: [
+                        {
+                            disco: 1,
+                            archivos: [
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.001',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.002',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.003',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.004',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.005',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%201)%20%5BSLPS-02005%5D.7z.006'
+                            ]
+                        },
+                        {
+                            disco: 2,
+                            archivos: [
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.001',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.002',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.003',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.004',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.005',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.006',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.007',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.008',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.009',
+                                'https://ikaruss1177.github.io/Ikaruss/psx/Macross%20-%20Do%20You%20Remember%20Love%20(Japan)%20(Disc%202)%20%5BSLPS-02006%5D.7z.010'
+                            ]
+                        }
+                    ]
+                }
             ]
         };
 
@@ -124,13 +156,80 @@
             }
         }
 
+        async function ensamblarDiscos(juego) {
+            document.getElementById('header').style.display = 'none';
+            document.getElementById('menu').style.display = 'none';
+            document.getElementById('emulador').innerHTML = `
+                <div style="text-align:center;padding:40px;">
+                    <div id="progreso" style="color:#FFD700;font-size:18px;">Descargando juego... por favor esperá</div>
+                    <div style="margin-top:20px;background:#111;border:1px solid #FFD700;width:400px;margin:20px auto;">
+                        <div id="barra" style="background:#FFD700;height:20px;width:0%;transition:width 0.3s;"></div>
+                    </div>
+                    <div id="detalle" style="color:#888;font-size:14px;"></div>
+                </div>`;
+            document.getElementById('btnVolver').style.display = 'block';
+
+            const discos = [];
+
+            for (let d = 0; d < juego.partes.length; d++) {
+                const disco = juego.partes[d];
+                const partes = [];
+                for (let i = 0; i < disco.archivos.length; i++) {
+                    const url = disco.archivos[i];
+                    document.getElementById('progreso').textContent = `Descargando Disco ${disco.disco} - parte ${i+1} de ${disco.archivos.length}...`;
+                    document.getElementById('barra').style.width = ((d * disco.archivos.length + i) / (juego.partes.reduce((a,b) => a + b.archivos.length, 0))) * 100 + '%';
+                    const resp = await fetch(url);
+                    const buf = await resp.arrayBuffer();
+                    partes.push(new Uint8Array(buf));
+                }
+                // Unir todas las partes
+                const totalSize = partes.reduce((a, b) => a + b.length, 0);
+                const joined = new Uint8Array(totalSize);
+                let offset = 0;
+                for (const p of partes) { joined.set(p, offset); offset += p.length; }
+                discos.push(joined);
+            }
+
+            document.getElementById('progreso').textContent = 'Descomprimiendo... esto puede tardar un momento';
+
+            // Descomprimir con 7z-wasm
+            const { createExtractorFromData } = await import('https://unpkg.com/node-7z-archive@1.0.2/dist/browser/index.js').catch(() => null);
+            
+            if (!createExtractorFromData) {
+                document.getElementById('progreso').textContent = 'Error al cargar descompresor. Intentando método alternativo...';
+                // Intentar con archivos CHD directamente si están disponibles
+                return;
+            }
+
+            const urls = [];
+            for (let d = 0; d < discos.length; d++) {
+                const extractor = await createExtractorFromData({ data: discos[d] });
+                const files = [...extractor.extract().files];
+                const file = files[0];
+                const blob = new Blob([file.extraction], { type: 'application/octet-stream' });
+                urls.push(URL.createObjectURL(blob));
+            }
+
+            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+            window.EJS_player = '#game';
+            window.EJS_core = juego.core;
+            window.EJS_gameUrl = urls;
+            window.EJS_pathtodata = 'data/';
+            if (juego.bios) window.EJS_biosUrl = juego.bios;
+            var script = document.createElement('script');
+            script.src = 'data/loader.js';
+            document.body.appendChild(script);
+        }
+
         function cargarJuego() {
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
             if (!consola || idx === '') return;
             const juego = juegos[consola][idx];
 
-            if (Array.isArray(juego.archivo)) {
+            if (juego.partes) {
+                ensamblarDiscos(juego);
+            } else if (Array.isArray(juego.archivo)) {
                 document.getElementById('header').style.display = 'none';
                 document.getElementById('menu').style.display = 'none';
                 document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
