@@ -90,7 +90,16 @@
 
             window.EJS_player = '#game';
             window.EJS_core = params.get('core');
-            window.EJS_gameUrl = params.get('rom');
+            const romParam = params.get('rom');
+            try {
+                const parsed = JSON.parse(romParam);
+                window.EJS_gameUrl = Array.isArray(parsed) ? parsed[0] : parsed;
+                if (Array.isArray(parsed) && parsed.length > 1) {
+                    window.EJS_multidisk = parsed;
+                }
+            } catch(e) {
+                window.EJS_gameUrl = romParam;
+            }
             window.EJS_pathtodata = 'data/';
             if (params.get('bios')) {
                 window.EJS_biosUrl = params.get('bios');
