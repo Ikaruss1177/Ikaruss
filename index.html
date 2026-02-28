@@ -44,6 +44,7 @@
 
     <script>
         const base = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Ikaruss/';
+        const basePSX = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Playrom/';
         const juegos = {
             nes: [
                 { nombre: '42 Juegos en 1', archivo: base + '42-in-1.nes', core: 'nes' },
@@ -79,32 +80,107 @@
                 { 
                     nombre: 'Macross: Do You Remember Love?', 
                     core: 'psx',
-                    bios: base + 'psx/SCPH1001.BIN',
+                    bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
                         {
                             disco: 1,
                             archivos: [
-                                base + 'psx/disc1.part000',
-                                base + 'psx/disc1.part001',
-                                base + 'psx/disc1.part002',
-                                base + 'psx/disc1.part003',
-                                base + 'psx/disc1.part004',
-                                base + 'psx/disc1.part005'
+                                basePSX + 'psx/disc1.part000',
+                                basePSX + 'psx/disc1.part001',
+                                basePSX + 'psx/disc1.part002',
+                                basePSX + 'psx/disc1.part003',
+                                basePSX + 'psx/disc1.part004',
+                                basePSX + 'psx/disc1.part005'
                             ]
                         },
                         {
                             disco: 2,
                             archivos: [
-                                base + 'psx/disc2.part000',
-                                base + 'psx/disc2.part001',
-                                base + 'psx/disc2.part002',
-                                base + 'psx/disc2.part003',
-                                base + 'psx/disc2.part004',
-                                base + 'psx/disc2.part005',
-                                base + 'psx/disc2.part006',
-                                base + 'psx/disc2.part007',
-                                base + 'psx/disc2.part008',
-                                base + 'psx/disc2.part009'
+                                basePSX + 'psx/disc2.part000',
+                                basePSX + 'psx/disc2.part001',
+                                basePSX + 'psx/disc2.part002',
+                                basePSX + 'psx/disc2.part003',
+                                basePSX + 'psx/disc2.part004',
+                                basePSX + 'psx/disc2.part005',
+                                basePSX + 'psx/disc2.part006',
+                                basePSX + 'psx/disc2.part007',
+                                basePSX + 'psx/disc2.part008',
+                                basePSX + 'psx/disc2.part009'
+                            ]
+                        }
+                    ]
+                },
+                { 
+                    nombre: 'Macross Digital Mission VF-X', 
+                    core: 'psx',
+                    bios: basePSX + 'psx/SCPH1001.BIN',
+                    partes: [
+                        {
+                            disco: 1,
+                            archivos: [
+                                basePSX + 'psx/vfx1.part000',
+                                basePSX + 'psx/vfx1.part001',
+                                basePSX + 'psx/vfx1.part002',
+                                basePSX + 'psx/vfx1.part003',
+                                basePSX + 'psx/vfx1.part004',
+                                basePSX + 'psx/vfx1.part005',
+                                basePSX + 'psx/vfx1.part006',
+                                basePSX + 'psx/vfx1.part007',
+                                basePSX + 'psx/vfx1.part008',
+                                basePSX + 'psx/vfx1.part009',
+                                basePSX + 'psx/vfx1.part010',
+                                basePSX + 'psx/vfx1.part011',
+                                basePSX + 'psx/vfx1.part012',
+                                basePSX + 'psx/vfx1.part013'
+                            ]
+                        }
+                    ]
+                },
+                { 
+                    nombre: 'Macross VF-X2', 
+                    core: 'psx',
+                    bios: basePSX + 'psx/SCPH1001.BIN',
+                    partes: [
+                        {
+                            disco: 1,
+                            archivos: [
+                                basePSX + 'psx/vfx2.part000',
+                                basePSX + 'psx/vfx2.part001',
+                                basePSX + 'psx/vfx2.part002',
+                                basePSX + 'psx/vfx2.part003',
+                                basePSX + 'psx/vfx2.part004',
+                                basePSX + 'psx/vfx2.part005',
+                                basePSX + 'psx/vfx2.part006',
+                                basePSX + 'psx/vfx2.part007',
+                                basePSX + 'psx/vfx2.part008'
+                            ]
+                        }
+                    ]
+                },
+                { 
+                    nombre: 'Macross Plus - Game Edition', 
+                    core: 'psx',
+                    bios: basePSX + 'psx/SCPH1001.BIN',
+                    partes: [
+                        {
+                            disco: 1,
+                            archivos: [
+                                basePSX + 'psx/plus.part000',
+                                basePSX + 'psx/plus.part001',
+                                basePSX + 'psx/plus.part002',
+                                basePSX + 'psx/plus.part003',
+                                basePSX + 'psx/plus.part004',
+                                basePSX + 'psx/plus.part005',
+                                basePSX + 'psx/plus.part006',
+                                basePSX + 'psx/plus.part007',
+                                basePSX + 'psx/plus.part008',
+                                basePSX + 'psx/plus.part009',
+                                basePSX + 'psx/plus.part010',
+                                basePSX + 'psx/plus.part011',
+                                basePSX + 'psx/plus.part012',
+                                basePSX + 'psx/plus.part013',
+                                basePSX + 'psx/plus.part014',
+                                basePSX + 'psx/plus.part015'
                             ]
                         }
                     ]
