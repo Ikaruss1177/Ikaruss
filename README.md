@@ -1,7 +1,5 @@
 # Ikaruss Retrogaming Zone
 
-![Ikaruss Retrogaming Zone](logo.png)
-
 ## ¿Qué es esto?
 
 Emulador retro online creado para la comunidad de **La Bitácora del Megaroad**.
@@ -15,6 +13,7 @@ Permite jugar clásicos de NES, Super NES, Game Boy Color, Bandai WonderSwan, Se
 - 🎮 Bandai WonderSwan
 - 🎮 Sega Genesis / Mega Drive
 - 🕹️ MAME Arcade
+- 🎮 Playstation 1
 
 ## Créditos
 
