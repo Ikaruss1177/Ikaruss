@@ -31,7 +31,7 @@
                 <option value="wonderswan">Bandai WonderSwan</option>
                 <option value="genesis">Sega Genesis</option>
                 <option value="mame">MAME Arcade</option>
-                <option value="psx">PlayStation 1</option>
+                <option value="psx">PlayStation</option>
             </select>
             <select id="juego">
                 <option value="">Selecciona juego</option>
@@ -44,7 +44,7 @@
 
     <script>
         const base = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Ikaruss/';
-        const basePSX = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Playrom/';
+        const basePSX = window.location.href.includes('discordsays.com') ? '/psx/' : 'https://ikaruss1177.github.io/Playrom/';
         const juegos = {
             nes: [
                 { nombre: '42 Juegos en 1', archivo: base + '42-in-1.nes', core: 'nes' },
