@@ -31,7 +31,7 @@
                 <option value="wonderswan">Bandai WonderSwan</option>
                 <option value="genesis">Sega Genesis</option>
                 <option value="mame">MAME Arcade</option>
-                <option value="psx">PROXIMAMENTE</option>
+                <option value="psx">PlayStation</option>
             </select>
             <select id="juego">
                 <option value="">Selecciona juego</option>
@@ -191,7 +191,7 @@
             document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
             window.EJS_player = '#game';
             window.EJS_core = juego.core;
-            window.EJS_gameUrl = urls;
+            window.EJS_gameUrl = urls[0];
             window.EJS_pathtodata = 'data/';
             if (juego.bios) window.EJS_biosUrl = juego.bios;
             var script = document.createElement('script');
