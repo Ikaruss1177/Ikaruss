@@ -20,9 +20,10 @@
         box-sizing: border-box;
     }
 
+    html,
     body {
         margin: 0;
-        background: var(--bg-main);
+        background-color: var(--bg-main);
         color: var(--text);
         font-family: 'Conthrax', monospace, sans-serif;
     }
@@ -33,11 +34,7 @@
         justify-content: center;
         gap: 16px;
         padding: 20px;
-        background: linear-gradient(
-            145deg,
-            rgba(8, 18, 25, 0.98),
-            rgba(5, 9, 14, 0.98)
-        );
+        background: linear-gradient(145deg, #081219, #05090e);
         border-bottom: 1px solid var(--blue);
         box-shadow: 0 0 14px rgba(0, 119, 182, 0.15);
     }
@@ -50,13 +47,18 @@
 
     #header h1 {
         margin: 0 15px;
-        color: var(--cyan);
+        color: var(--cyan) !important;
         font-size: clamp(16px, 2.5vw, 25px);
         font-weight: normal;
         letter-spacing: 2px;
         text-align: center;
         text-transform: uppercase;
         text-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+    }
+
+    #menu,
+    #selector {
+        background-color: var(--bg-panel);
     }
 
     #selector {
@@ -66,7 +68,6 @@
         flex-wrap: wrap;
         gap: 10px;
         padding: 20px;
-        background: var(--bg-panel);
         border-bottom: 1px solid rgba(0, 255, 204, 0.2);
     }
 
@@ -74,7 +75,7 @@
         min-width: 180px;
         max-width: 100%;
         padding: 11px 12px;
-        background: var(--bg-control);
+        background-color: var(--bg-control);
         color: var(--cyan);
         font-family: inherit;
         font-size: 12px;
@@ -89,7 +90,7 @@
     }
 
     select option {
-        background: var(--bg-control);
+        background-color: var(--bg-control);
         color: var(--text);
     }
 
@@ -117,13 +118,17 @@
         justify-content: center;
         align-items: flex-start;
         width: 100%;
+        min-height: 100px;
         margin-top: 20px;
         padding: 0 12px;
         overflow: auto;
+        background-color: var(--bg-main);
+        color: var(--text);
     }
 
     #emulador #game {
         max-width: 100%;
+        background-color: var(--bg-main);
     }
 
     #btnVolver {
@@ -170,16 +175,6 @@
             padding: 0 5px;
         }
     }
-        html,
-body,
-#emulador,
-#game {
-    background-color: #05090e;
-}
-</style>
-    #header h1 {
-    color: #00ffcc !important;
-}
     </style>
 </head>
 <body>
