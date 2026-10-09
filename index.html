@@ -178,6 +178,30 @@
             padding: 5px;
         }
     }
+        /* Forzar texto cyan en toda la interfaz */
+body,
+body *,
+body *::before,
+body *::after {
+    color: #00ffcc !important;
+}
+
+/* Mantener fondos oscuros en controles */
+select,
+select option,
+button {
+    background-color: #081219;
+    color: #00ffcc !important;
+}
+
+/* Mensajes de descarga y carga */
+#status,
+#loading,
+#progress,
+#mensaje,
+#emulador {
+    color: #00ffcc !important;
+}
 </style>
 </head>
 <body>
