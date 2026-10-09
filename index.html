@@ -1,215 +1,331 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikaruss Retrogaming Zone</title>
+
     <style>
-<style>
-    :root {
-        --cyan: #00ffcc;
-        --blue: #0077b6;
-        --text: #d8e5ed;
-        --panel: rgba(5, 9, 14, 0.88);
-    }
-
-    * {
-        box-sizing: border-box;
-    }
-
-    html {
-        min-height: 100%;
-        background-color: #05090e;
-    }
-
-    body {
-        margin: 0;
-        min-height: 100vh;
-        background-color: #05090e;
-        background-image: url("https://ikaruss1177.github.io/Ikaruss/Galaxia.jpg");
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
-        color: var(--text);
-        font-family: 'Conthrax', monospace, sans-serif;
-    }
-
-    #header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 16px;
-        padding: 20px;
-        background: var(--panel);
-        border-bottom: 1px solid var(--blue);
-    }
-
-    #header img {
-        height: 50px;
-        width: auto;
-        object-fit: contain;
-    }
-
-    #header h1 {
-        margin: 0 15px;
-        color: #00ffcc !important;
-        font-family: inherit;
-        font-size: clamp(16px, 2.5vw, 25px);
-        font-weight: normal;
-        letter-spacing: 2px;
-        text-align: center;
-        text-transform: uppercase;
-        text-shadow: none !important;
-        -webkit-text-fill-color: #00ffcc;
-    }
-
-    #menu {
-        background: var(--panel);
-    }
-
-    #selector {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 20px;
-        background: transparent;
-        border-bottom: 1px solid rgba(0, 255, 204, 0.3);
-    }
-
-    select {
-        min-width: 180px;
-        max-width: 100%;
-        padding: 11px 12px;
-        background: #081219;
-        color: #00ffcc !important;
-        font-family: inherit;
-        font-size: 12px;
-        border: 1px solid var(--blue);
-        border-radius: 3px;
-        cursor: pointer;
-        color-scheme: dark;
-    }
-
-    select option {
-        background: #081219;
-        color: #00ffcc;
-    }
-
-    button {
-        padding: 11px 20px;
-        background: #081219;
-        color: #00ffcc !important;
-        font-family: inherit;
-        font-size: 12px;
-        border: 1px solid var(--blue);
-        border-radius: 3px;
-        cursor: pointer;
-        text-shadow: none !important;
-    }
-
-    button:hover {
-        background: #12313d;
-        border-color: #00ffcc;
-    }
-
-    #emulador {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100%;
-        min-height: 100px;
-        margin-top: 20px;
-        padding: 12px;
-        overflow: auto;
-        background: transparent !important;
-        color: var(--text);
-    }
-
-#emulador #game {
-    width: 100%;
-    max-width: 1200px;
-    min-height: 675px;
-}
-
-    #btnVolver {
-        display: none;
-        margin: 20px auto;
-        background: #081219;
-        color: #00ffcc !important;
-        border-color: var(--blue);
-    }
-
-    @media (max-width: 768px) {
-        body {
-            background-attachment: scroll;
+        /* ==========================================
+           FUENTE CONTHRAX
+           ========================================== */
+        @font-face {
+            font-family: 'Conthrax';
+            src: url('https://ikaruss1177.github.io/Ikaruss/conthrax-sb.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
+        /* ==========================================
+           CONFIGURACIÓN GENERAL
+           ========================================== */
+        :root {
+            --cyan: #00ffcc;
+            --blue: #0077b6;
+            --dark: #081219;
+            --panel: rgba(5, 9, 14, 0.88);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+            background-color: #05090e;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background-color: #05090e;
+            background-image: url('https://ikaruss1177.github.io/Ikaruss/Galaxia.jpg');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--cyan);
+            font-family: 'Conthrax', monospace, sans-serif;
+        }
+
+        /* Texto cian en la interfaz */
+        body,
+        body * {
+            color: var(--cyan);
+        }
+
+        /* ==========================================
+           CABECERA
+           ========================================== */
         #header {
-            gap: 8px;
-            padding: 14px 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            padding: 20px;
+            background: var(--panel);
+            border-bottom: 1px solid var(--blue);
         }
 
         #header img {
-            height: 32px;
+            height: 50px;
+            width: auto;
+            object-fit: contain;
         }
 
         #header h1 {
-            margin: 0 4px;
-            font-size: 14px;
-            letter-spacing: 1px;
+            margin: 0 15px;
+            color: var(--cyan) !important;
+            font-family: 'Conthrax', monospace, sans-serif;
+            font-size: clamp(16px, 2.5vw, 25px);
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: none !important;
+        }
+
+        /* ==========================================
+           MENÚ Y SELECTORES
+           ========================================== */
+        #menu {
+            background: var(--panel);
         }
 
         #selector {
-            flex-direction: column;
-            padding: 16px 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            background: transparent;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.3);
         }
 
-        select,
-        #selector button {
-            width: 100%;
-            max-width: 400px;
+        select {
+            min-width: 180px;
+            max-width: 100%;
+            padding: 11px 12px;
+            background: #081219;
+            color: var(--cyan) !important;
+            font-family: 'Conthrax', monospace, sans-serif;
+            font-size: 12px;
+            border: 1px solid var(--blue);
+            border-radius: 3px;
+            cursor: pointer;
+            color-scheme: dark;
         }
 
+        select option {
+            background: #081219;
+            color: var(--cyan);
+        }
+
+        /* ==========================================
+           BOTONES GENERALES
+           ========================================== */
+        button {
+            padding: 11px 20px;
+            background: #081219;
+            color: var(--cyan) !important;
+            font-family: 'Conthrax', monospace, sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            border: 1px solid var(--blue);
+            border-radius: 3px;
+            cursor: pointer;
+            text-shadow: none !important;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #12313d;
+            border-color: var(--cyan);
+        }
+
+        /* ==========================================
+           BOTÓN VOLVER A LA BITÁCORA
+           ========================================== */
+        #btnBitacora {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            min-height: 55px;
+            margin: 20px auto;
+            padding: 10px 25px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(6, 11, 17, 0.4) 0%,
+                rgba(17, 27, 39, 0.4) 100%
+            );
+
+            border: 1.5px solid #ffffff;
+            border-radius: 50px;
+
+            color: var(--cyan) !important;
+            font-family: 'Conthrax', monospace, sans-serif;
+            font-size: 12px;
+            font-weight: normal;
+            text-transform: uppercase;
+            text-decoration: none;
+            letter-spacing: 1.5px;
+            text-align: center;
+
+            transition: all 0.3s ease;
+        }
+
+        #btnBitacora:hover {
+            background: linear-gradient(
+                135deg,
+                rgba(9, 19, 30, 0.75) 0%,
+                rgba(23, 40, 58, 0.75) 100%
+            );
+
+            border-color: var(--cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+        }
+
+        /* ==========================================
+           ÁREA DEL EMULADOR
+           ========================================== */
         #emulador {
-            margin-top: 12px;
-            padding: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            min-height: 100px;
+            margin-top: 20px;
+            padding: 12px;
+            overflow: auto;
+            background: transparent !important;
+            color: var(--cyan) !important;
         }
-    }
-        /* Forzar texto cyan en toda la interfaz */
-body,
-body *,
-body *::before,
-body *::after {
-    color: #00ffcc !important;
-}
 
-/* Mantener fondos oscuros en controles */
-select,
-select option,
-button {
-    background-color: #081219;
-    color: #00ffcc !important;
-}
+        /* Contenedor del juego: hasta 1200 px */
+        #emulador .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: min(675px, 75vh);
+            min-height: 360px;
+            margin: 0 auto;
+        }
 
-/* Mensajes de descarga y carga */
-#status,
-#loading,
-#progress,
-#mensaje,
-#emulador {
-    color: #00ffcc !important;
-}
-</style>
+        #emulador #game {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 360px;
+        }
+
+        /* El emulador ocupa el contenedor disponible */
+        #emulador #game canvas,
+        #emulador #game iframe {
+            max-width: 100%;
+        }
+
+        /* ==========================================
+           BOTÓN VOLVER AL MENÚ DE JUEGOS
+           ========================================== */
+        #btnVolver {
+            display: none;
+            margin: 20px auto;
+            background: #081219;
+            color: var(--cyan) !important;
+            border: 1px solid var(--blue);
+            border-radius: 50px;
+            font-family: 'Conthrax', monospace, sans-serif;
+        }
+
+        /* ==========================================
+           MENSAJES DE CARGA Y DESCARGA
+           ========================================== */
+        #progreso,
+        #detalle,
+        #status,
+        #loading,
+        #progress,
+        #mensaje {
+            color: var(--cyan) !important;
+            font-family: 'Conthrax', monospace, sans-serif;
+        }
+
+        #barra {
+            background: var(--cyan) !important;
+        }
+
+        /* ==========================================
+           ADAPTACIÓN PARA MÓVILES
+           ========================================== */
+        @media (max-width: 768px) {
+            body {
+                background-attachment: scroll;
+            }
+
+            #header {
+                gap: 8px;
+                padding: 14px 8px;
+            }
+
+            #header img {
+                height: 32px;
+            }
+
+            #header h1 {
+                margin: 0 4px;
+                font-size: 14px;
+                letter-spacing: 1px;
+            }
+
+            #selector {
+                flex-direction: column;
+                padding: 16px 12px;
+            }
+
+            select,
+            #selector button {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            #btnBitacora {
+                width: 90%;
+                max-width: 400px;
+                min-height: 50px;
+                font-size: 11px;
+            }
+
+            #emulador {
+                margin-top: 12px;
+                padding: 5px;
+            }
+
+            #emulador .game-container {
+                width: 100%;
+                height: min(70vh, 540px);
+                min-height: 300px;
+            }
+
+            #emulador #game {
+                min-height: 300px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <div id="header">
-        <img src="Megaroad%20logo.png">
+        <img src="Megaroad%20logo.png" alt="Megaroad">
         <h1>Ikaruss Retrogaming Zone</h1>
-        <img src="Megaroad%20logo.png">
+        <img src="Megaroad%20logo.png" alt="Megaroad">
     </div>
+
     <div id="menu">
         <div id="selector">
             <select id="consola">
@@ -222,52 +338,145 @@ button {
                 <option value="mame">MAME Arcade</option>
                 <option value="psx">PlayStation</option>
             </select>
+
             <select id="juego">
                 <option value="">Selecciona juego</option>
             </select>
+
             <button id="btnJugar">Jugar</button>
         </div>
     </div>
+
+    <a
+        href="https://bitacoramegaroad.github.io/"
+        id="btnBitacora"
+    >Volver a La Bitácora</a>
+
     <div id="emulador"></div>
-    <button id="btnVolver">Volver al Menu</button>
+
+    <button id="btnVolver">Volver al menú</button>
 
     <script>
-        const base = window.location.href.includes('discordsays.com') ? '/roms/' : 'https://ikaruss1177.github.io/Ikaruss/';
-        const basePSX = window.location.href.includes('discordsays.com') ? '/psx/' : 'https://ikaruss1177.github.io/Playrom/';
+        const base = window.location.href.includes('discordsays.com')
+            ? '/roms/'
+            : 'https://ikaruss1177.github.io/Ikaruss/';
+
+        const basePSX = window.location.href.includes('discordsays.com')
+            ? '/psx/'
+            : 'https://ikaruss1177.github.io/Playrom/';
+
         const juegos = {
             nes: [
-                { nombre: '42 Juegos en 1', archivo: base + '42-in-1.nes', core: 'nes' },
-                { nombre: 'SDF Macross', archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes', core: 'nes' },
-                { nombre: 'Saint Seiya vs Los Caballeros del Zodiaco', archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20(Spanish%20v1.0)(Juan).nes', core: 'nes' },
-                { nombre: 'Saint Seiya vs Los Caballeros del Zodiaco 2', archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20Kanketsu%20Hen%20(English%20v1.01).nes', core: 'nes' }
+                {
+                    nombre: '42 Juegos en 1',
+                    archivo: base + '42-in-1.nes',
+                    core: 'nes'
+                },
+                {
+                    nombre: 'SDF Macross',
+                    archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes',
+                    core: 'nes'
+                },
+                {
+                    nombre: 'Saint Seiya vs Los Caballeros del Zodiaco',
+                    archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20(Spanish%20v1.0)(Juan).nes',
+                    core: 'nes'
+                },
+                {
+                    nombre: 'Saint Seiya vs Los Caballeros del Zodiaco 2',
+                    archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20Kanketsu%20Hen%20(English%20v1.01).nes',
+                    core: 'nes'
+                }
             ],
+
             snes: [
-                { nombre: 'Macross Scrambled Valkyrie', archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc', core: 'snes' }
+                {
+                    nombre: 'Macross Scrambled Valkyrie',
+                    archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc',
+                    core: 'snes'
+                }
             ],
+
             gbc: [
-                { nombre: 'Macross 7: ¡Haz Vibrar la Galaxia!', archivo: base + 'Macross%207.gbc', core: 'gambatte' }
+                {
+                    nombre: 'Macross 7: ¡Haz Vibrar la Galaxia!',
+                    archivo: base + 'Macross%207.gbc',
+                    core: 'gambatte'
+                }
             ],
+
             wonderswan: [
-                { nombre: 'Digimon Digital Monster', archivo: base + 'Digimon%20-%20Ver.%20WonderSwan%20(Asia).ws', core: 'ws' },
-                { nombre: 'Macross: True Love Song', archivo: base + 'Macross%20-%20True%20Love%20Song%20(Japan).ws', core: 'ws' },
-                { nombre: 'Sakura Card Captor - Las Cartas Clow', archivo: base + 'Cardcaptor%20Sakura%20-%20Sakura%20to%20Fushigi%20na%20Clow%20Card%20(Japan).ws', core: 'ws' },
-                { nombre: 'SD Gundam: Emotional Jam', archivo: base + 'SD%20Gundam%20-%20Emotional%20Jam%20(Japan).ws', core: 'ws' }
+                {
+                    nombre: 'Digimon Digital Monster',
+                    archivo: base + 'Digimon%20-%20Ver.%20WonderSwan%20(Asia).ws',
+                    core: 'ws'
+                },
+                {
+                    nombre: 'Macross: True Love Song',
+                    archivo: base + 'Macross%20-%20True%20Love%20Song%20(Japan).ws',
+                    core: 'ws'
+                },
+                {
+                    nombre: 'Sakura Card Captor - Las Cartas Clow',
+                    archivo: base + 'Cardcaptor%20Sakura%20-%20Sakura%20to%20Fushigi%20na%20Clow%20Card%20(Japan).ws',
+                    core: 'ws'
+                },
+                {
+                    nombre: 'SD Gundam: Emotional Jam',
+                    archivo: base + 'SD%20Gundam%20-%20Emotional%20Jam%20(Japan).ws',
+                    core: 'ws'
+                }
             ],
+
             genesis: [
-                { nombre: 'Dragon Ball Z:Leyendas de Poder', archivo: base + 'DBZ.SMD', core: 'segaMD' },
-                { nombre: 'El Mundo Perdido - Jurassic Park', archivo: base + 'LOSTWRLD.SMD', core: 'segaMD' },
-                { nombre: 'Heavy Unit Armored Robot', archivo: base + 'Heavy%20Unit(Japan).SMD', core: 'segaMD' },
-                { nombre: 'Jurassic Park', archivo: base + 'JURASSIC.SMD', core: 'segaMD' },
-                { nombre: 'Sailor Moon', archivo: base + 'SAILORM.SMD', core: 'segaMD' }
+                {
+                    nombre: 'Dragon Ball Z: Leyendas de Poder',
+                    archivo: base + 'DBZ.SMD',
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'El Mundo Perdido - Jurassic Park',
+                    archivo: base + 'LOSTWRLD.SMD',
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'Heavy Unit Armored Robot',
+                    archivo: base + 'Heavy%20Unit(Japan).SMD',
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'Jurassic Park',
+                    archivo: base + 'JURASSIC.SMD',
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'Sailor Moon',
+                    archivo: base + 'SAILORM.SMD',
+                    core: 'segaMD'
+                }
             ],
+
             mame: [
-                { nombre: 'Macross II', archivo: base + 'macross2.zip', core: 'arcade' },
-                { nombre: 'Macross Plus', archivo: base + 'macrossp.zip', core: 'arcade' },
-                { nombre: 'Super Space Fortress Macross: DYRL?', archivo: base + 'macross.zip', core: 'arcade' }
+                {
+                    nombre: 'Macross II',
+                    archivo: base + 'macross2.zip',
+                    core: 'arcade'
+                },
+                {
+                    nombre: 'Macross Plus',
+                    archivo: base + 'macrossp.zip',
+                    core: 'arcade'
+                },
+                {
+                    nombre: 'Super Space Fortress Macross: DYRL?',
+                    archivo: base + 'macross.zip',
+                    core: 'arcade'
+                }
             ],
+
             psx: [
-                { 
-                    nombre: 'Macross: Do You Remember Love?', 
+                {
+                    nombre: 'Macross: Do You Remember Love?',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -299,8 +508,9 @@ button {
                         }
                     ]
                 },
-                { 
-                    nombre: 'Macross Digital Mission VF-X', 
+
+                {
+                    nombre: 'Macross Digital Mission VF-X',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -325,8 +535,9 @@ button {
                         }
                     ]
                 },
-                { 
-                    nombre: 'Macross VF-X2', 
+
+                {
+                    nombre: 'Macross VF-X2',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -346,8 +557,9 @@ button {
                         }
                     ]
                 },
-                { 
-                    nombre: 'Macross Plus - Game Edition', 
+
+                {
+                    nombre: 'Macross Plus - Game Edition',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -379,124 +591,277 @@ button {
 
         const params = new URLSearchParams(window.location.search);
 
+        /* ==========================================
+           CONTENEDOR RESPONSIVO DEL JUEGO
+           ========================================== */
+        function crearContenedorJuego() {
+            document.getElementById('emulador').innerHTML = `
+                <div class="game-container">
+                    <div id="game"></div>
+                </div>
+            `;
+        }
+
+        /* ==========================================
+           CARGA DIRECTA MEDIANTE PARÁMETROS URL
+           ========================================== */
         if (params.get('core') && params.get('rom')) {
             document.getElementById('header').style.display = 'none';
             document.getElementById('menu').style.display = 'none';
-            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+
+            crearContenedorJuego();
+
             document.getElementById('btnVolver').style.display = 'block';
 
             window.EJS_player = '#game';
             window.EJS_core = params.get('core');
+
             const romParam = params.get('rom');
+
             try {
                 const parsed = JSON.parse(romParam);
-                window.EJS_gameUrl = Array.isArray(parsed) ? parsed[0] : parsed;
+
+                window.EJS_gameUrl = Array.isArray(parsed)
+                    ? parsed[0]
+                    : parsed;
+
                 if (Array.isArray(parsed) && parsed.length > 1) {
                     window.EJS_multidisk = parsed;
                 }
-            } catch(e) {
+            } catch (e) {
                 window.EJS_gameUrl = romParam;
             }
+
             window.EJS_pathtodata = 'data/';
+
             if (params.get('bios')) {
                 window.EJS_biosUrl = params.get('bios');
             }
 
-            var script = document.createElement('script');
+            const script = document.createElement('script');
             script.src = 'data/loader.js';
             document.body.appendChild(script);
         }
 
+        /* ==========================================
+           ACTUALIZAR LISTA DE JUEGOS
+           ========================================== */
         function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
             const selectJuego = document.getElementById('juego');
-            selectJuego.innerHTML = '<option value="">Selecciona juego</option>';
+
+            selectJuego.innerHTML =
+                '<option value="">Selecciona juego</option>';
+
             if (consola && juegos[consola]) {
-                juegos[consola].forEach((j, i) => {
+                juegos[consola].forEach((juego, i) => {
                     const option = document.createElement('option');
                     option.value = i;
-                    option.textContent = j.nombre;
+                    option.textContent = juego.nombre;
                     selectJuego.appendChild(option);
                 });
             }
         }
 
+        /* ==========================================
+           ENSAMBLAR JUEGOS DE PLAYSTATION
+           ========================================== */
         async function ensamblarDiscos(juego) {
             document.getElementById('header').style.display = 'none';
             document.getElementById('menu').style.display = 'none';
+
             document.getElementById('emulador').innerHTML = `
-                <div style="text-align:center;padding:40px;">
-                    <div id="progreso" style="color:#FFD700;font-size:18px;">Descargando juego... por favor esperá</div>
-                    <div style="margin-top:20px;background:#111;border:1px solid #FFD700;width:400px;margin:20px auto;">
-                        <div id="barra" style="background:#FFD700;height:20px;width:0%;transition:width 0.3s;"></div>
+                <div style="
+                    width:100%;
+                    max-width:700px;
+                    margin:0 auto;
+                    padding:40px 15px;
+                    text-align:center;
+                ">
+                    <div id="progreso" style="
+                        color:#00ffcc;
+                        font-size:14px;
+                        overflow-wrap:anywhere;
+                    ">
+                        Preparando descarga...
                     </div>
-                    <div id="detalle" style="color:#888;font-size:14px;"></div>
-                </div>`;
+
+                    <div style="
+                        width:100%;
+                        max-width:400px;
+                        margin:20px auto;
+                        background:#111;
+                        border:1px solid #0077b6;
+                    ">
+                        <div id="barra" style="
+                            width:0%;
+                            height:20px;
+                            background:#00ffcc;
+                            transition:width 0.3s;
+                        "></div>
+                    </div>
+
+                    <div id="detalle" style="
+                        color:#00ffcc;
+                        font-size:12px;
+                    "></div>
+                </div>
+            `;
+
             document.getElementById('btnVolver').style.display = 'block';
 
-            const totalPartes = juego.partes.reduce((a, b) => a + b.archivos.length, 0);
+            const totalPartes = juego.partes.reduce(
+                (total, disco) => total + disco.archivos.length,
+                0
+            );
+
             let descargadas = 0;
             const urls = [];
 
             for (let d = 0; d < juego.partes.length; d++) {
                 const disco = juego.partes[d];
                 const partes = [];
+
                 for (let i = 0; i < disco.archivos.length; i++) {
-                    document.getElementById('progreso').textContent = `Descargando Disco ${disco.disco} - parte ${i+1} de ${disco.archivos.length}...`;
-                    document.getElementById('barra').style.width = (descargadas / totalPartes * 100) + '%';
-                    const resp = await fetch(disco.archivos[i]);
-                    partes.push(await resp.arrayBuffer());
+                    const progreso = document.getElementById('progreso');
+                    const barra = document.getElementById('barra');
+                    const detalle = document.getElementById('detalle');
+
+                    progreso.textContent =
+                        `Descargando Disco ${disco.disco} - parte ${i + 1} de ${disco.archivos.length}...`;
+
+                    detalle.textContent =
+                        `Partes descargadas: ${descargadas} de ${totalPartes}`;
+
+                    try {
+                        const resp = await fetch(disco.archivos[i]);
+
+                        if (!resp.ok) {
+                            throw new Error(
+                                `Error HTTP ${resp.status} al descargar ${disco.archivos[i]}`
+                            );
+                        }
+
+                        partes.push(await resp.arrayBuffer());
+                    } catch (error) {
+                        progreso.textContent = 'Error durante la descarga.';
+                        detalle.textContent =
+                            'No se pudo descargar una parte del juego. Revisá la conexión e intentá nuevamente.';
+
+                        console.error(error);
+                        return;
+                    }
+
                     descargadas++;
+
+                    barra.style.width =
+                        (descargadas / totalPartes * 100) + '%';
+
+                    detalle.textContent =
+                        `Partes descargadas: ${descargadas} de ${totalPartes}`;
                 }
-                const blob = new Blob(partes, { type: 'application/octet-stream' });
+
+                const blob = new Blob(partes, {
+                    type: 'application/octet-stream'
+                });
+
                 urls.push(URL.createObjectURL(blob));
             }
 
-            document.getElementById('progreso').textContent = 'Iniciando emulador...';
-            document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+            document.getElementById('progreso').textContent =
+                'Iniciando emulador...';
+
+            document.getElementById('detalle').textContent = '';
+
+            /*
+             * Conservamos la lógica original de carga:
+             * el primer disco se entrega al emulador.
+             */
+            crearContenedorJuego();
+
             window.EJS_player = '#game';
             window.EJS_core = juego.core;
             window.EJS_gameUrl = urls[0];
             window.EJS_pathtodata = 'data/';
-            if (juego.bios) window.EJS_biosUrl = juego.bios;
-            var script = document.createElement('script');
+
+            if (juego.bios) {
+                window.EJS_biosUrl = juego.bios;
+            }
+
+            const script = document.createElement('script');
             script.src = 'data/loader.js';
             document.body.appendChild(script);
         }
 
+        /* ==========================================
+           CARGAR JUEGO SELECCIONADO
+           ========================================== */
         function cargarJuego() {
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
-            if (!consola || idx === '') return;
+
+            if (!consola || idx === '') {
+                return;
+            }
+
             const juego = juegos[consola][idx];
 
             if (juego.partes) {
                 ensamblarDiscos(juego);
+
             } else if (Array.isArray(juego.archivo)) {
                 document.getElementById('header').style.display = 'none';
                 document.getElementById('menu').style.display = 'none';
-                document.getElementById('emulador').innerHTML = '<div style="width:640px;height:480px;"><div id="game"></div></div>';
+
+                crearContenedorJuego();
+
                 document.getElementById('btnVolver').style.display = 'block';
+
                 window.EJS_player = '#game';
                 window.EJS_core = juego.core;
                 window.EJS_gameUrl = juego.archivo;
                 window.EJS_pathtodata = 'data/';
-                if (juego.bios) window.EJS_biosUrl = juego.bios;
-                var script = document.createElement('script');
+
+                if (juego.bios) {
+                    window.EJS_biosUrl = juego.bios;
+                }
+
+                const script = document.createElement('script');
                 script.src = 'data/loader.js';
                 document.body.appendChild(script);
+
             } else {
-                let url = '?core=' + juego.core + '&rom=' + encodeURIComponent(juego.archivo);
-                if (juego.bios) url += '&bios=' + encodeURIComponent(juego.bios);
+                let url =
+                    '?core=' + encodeURIComponent(juego.core) +
+                    '&rom=' + encodeURIComponent(juego.archivo);
+
+                if (juego.bios) {
+                    url += '&bios=' + encodeURIComponent(juego.bios);
+                }
+
                 window.location.href = url;
             }
         }
 
-        document.getElementById('consola').addEventListener('change', actualizarJuegos);
-        document.getElementById('btnJugar').addEventListener('click', cargarJuego);
-        document.getElementById('btnVolver').addEventListener('click', () => {
-            window.location.href = window.location.pathname;
-        });
+        /* ==========================================
+           EVENTOS DE LOS CONTROLES
+           ========================================== */
+        document.getElementById('consola').addEventListener(
+            'change',
+            actualizarJuegos
+        );
+
+        document.getElementById('btnJugar').addEventListener(
+            'click',
+            cargarJuego
+        );
+
+        document.getElementById('btnVolver').addEventListener(
+            'click',
+            () => {
+                window.location.href = window.location.pathname;
+            }
+        );
     </script>
 </body>
 </html>
