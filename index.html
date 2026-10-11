@@ -405,285 +405,75 @@
             ? '/psx/'
             : 'https://ikaruss1177.github.io/Playrom/';
 
-        const juegos = {
-            nes: [
-                {
-                    nombre: '42 Juegos en 1',
-                    archivo: romBases.nes + '42-in-1.nes',
-                    core: 'nes'
-                },
-                {
-                    nombre: 'SDF Macross',
-                    archivo: romBases.nes + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes',
-                    core: 'nes'
-                },
-                {
-                    nombre: 'Saint Seiya vs Los Caballeros del Zodiaco',
-                    archivo: romBases.nes + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20(Spanish%20v1.0)(Juan).nes',
-                    core: 'nes'
-                },
-                {
-                    nombre: 'Saint Seiya vs Los Caballeros del Zodiaco 2',
-                    archivo: romBases.nes + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20Kanketsu%20Hen%20(English%20v1.01).nes',
-                    core: 'nes'
-                }
-            ],
-
-            snes: [
-                {
-                    nombre: 'Macross Scrambled Valkyrie',
-                    archivo: romBases.snes + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc',
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Asterix & Obelix',
-                    archivo: romBases.snes + encodeURIComponent('Asterix & Obelix.smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Chrono Trigger',
-                    archivo: romBases.snes + encodeURIComponent('Chrono Trigger.smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Marvel Super Heroes: La guerra de las gemas',
-                    archivo: romBases.snes + encodeURIComponent('Marvel Super Heroes - War of the Gems.smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Ranma 1/2: El tesoro de la banda del gato rojo (español)',
-                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Akanekodan Teki Hihou (J) [T+Spa100%_Emunixs].smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Ranma 1/2: Danza desenfrenada de técnicas supremas',
-                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Chougi Ranbu Hen (J) [o1].smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Ranma 1/2: El puzle de piedra, papel y tijera',
-                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Gu Choki Ougi Jaanken (J) [h2C].smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Ranma 1/2: Combate encarnizado',
-                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Hard Battle (U) [!].smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'Sunset Riders',
-                    archivo: romBases.snes + encodeURIComponent('Sunset Riders (U).smc'),
-                    core: 'snes'
-                },
-                {
-                    nombre: 'X-Men: Apocalipsis mutante',
-                    archivo: romBases.snes + encodeURIComponent('X-Men Mutant Apocalypse.smc'),
-                    core: 'snes'
-                }
-            ],
-
-            gbc: [
-                {
-                    nombre: 'Macross 7: ¡Haz vibrar la galaxia! (versión inglesa)',
-                    archivo: romBases.gbc + 'Macross%207%20english.gbc',
-                    core: 'gambatte'
-                }
-            ],
-
-            wonderswan: [
-                {
-                    nombre: 'Digimon: Monstruo digital',
-                    archivo: romBases.wonderswan + 'Digimon%20-%20Ver.%20WonderSwan%20(Asia).ws',
-                    core: 'ws'
-                },
-                {
-                    nombre: 'Macross: Canción de amor verdadero',
-                    archivo: romBases.wonderswan + 'Macross%20-%20True%20Love%20Song%20(Japan).ws',
-                    core: 'ws'
-                },
-                {
-                    nombre: 'Cardcaptor Sakura: Las cartas Clow',
-                    archivo: romBases.wonderswan + 'Cardcaptor%20Sakura%20-%20Sakura%20to%20Fushigi%20na%20Clow%20Card%20(Japan).ws',
-                    core: 'ws'
-                },
-                {
-                    nombre: 'SD Gundam: Batalla emocional',
-                    archivo: romBases.wonderswan + 'SD%20Gundam%20-%20Emotional%20Jam%20(Japan).ws',
-                    core: 'ws'
-                }
-            ],
-
-            genesis: [
-                {
-                    nombre: 'Dragon Ball Z: Leyendas de Poder',
-                    archivo: romBases.genesis + 'DBZ.SMD',
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'El mundo perdido: Jurassic Park',
-                    archivo: romBases.genesis + 'LOSTWRLD.SMD',
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'Heavy Unit: Robot blindado',
-                    archivo: romBases.genesis + 'Heavy%20Unit(Japan).SMD',
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'Jurassic Park',
-                    archivo: romBases.genesis + 'JURASSIC.SMD',
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'Sailor Moon',
-                    archivo: romBases.genesis + 'SAILORM.SMD',
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'James Bond 007: El Duelo',
-                    archivo: romBases.genesis + encodeURIComponent('007 James Bond - The Duel (Japan).SMD'),
-                    core: 'segaMD'
-                },
-                {
-                    nombre: 'BattleTech: Un juego de combate blindado',
-                    archivo: romBases.genesis + encodeURIComponent('BattleTech - A Game of Armored Combat (USA).SMD'),
-                    core: 'segaMD'
-                }
-            ],
-
-            mame: [
-                {
-                    nombre: 'Macross II',
-                    archivo: romBases.mame + 'macross2.zip',
-                    core: 'arcade'
-                },
-                {
-                    nombre: 'Macross Plus',
-                    archivo: romBases.mame + 'macrossplus.zip',
-                    core: 'arcade'
-                },
-                {
-                    nombre: 'Super Space Fortress Macross: ¿Recuerdas el amor?',
-                    archivo: romBases.mame + 'macrossdyrl.zip',
-                    core: 'arcade'
-                }
-            ],
-
-            psx: [
-                {
-                    nombre: 'Macross: ¿Recuerdas el amor?',
-                    core: 'psx',
-                    bios: basePSX + 'psx/SCPH1001.BIN',
-                    partes: [
-                        {
-                            disco: 1,
-                            archivos: [
-                                basePSX + 'psx/disc1.part000',
-                                basePSX + 'psx/disc1.part001',
-                                basePSX + 'psx/disc1.part002',
-                                basePSX + 'psx/disc1.part003',
-                                basePSX + 'psx/disc1.part004',
-                                basePSX + 'psx/disc1.part005'
-                            ]
-                        },
-                        {
-                            disco: 2,
-                            archivos: [
-                                basePSX + 'psx/disc2.part000',
-                                basePSX + 'psx/disc2.part001',
-                                basePSX + 'psx/disc2.part002',
-                                basePSX + 'psx/disc2.part003',
-                                basePSX + 'psx/disc2.part004',
-                                basePSX + 'psx/disc2.part005',
-                                basePSX + 'psx/disc2.part006',
-                                basePSX + 'psx/disc2.part007',
-                                basePSX + 'psx/disc2.part008',
-                                basePSX + 'psx/disc2.part009'
-                            ]
-                        }
-                    ]
-                },
-
-                {
-                    nombre: 'Macross: Misión digital VF-X',
-                    core: 'psx',
-                    bios: basePSX + 'psx/SCPH1001.BIN',
-                    partes: [
-                        {
-                            disco: 1,
-                            archivos: [
-                                basePSX + 'psx/vfx1.part000',
-                                basePSX + 'psx/vfx1.part001',
-                                basePSX + 'psx/vfx1.part002',
-                                basePSX + 'psx/vfx1.part003',
-                                basePSX + 'psx/vfx1.part004',
-                                basePSX + 'psx/vfx1.part005',
-                                basePSX + 'psx/vfx1.part006',
-                                basePSX + 'psx/vfx1.part007',
-                                basePSX + 'psx/vfx1.part008',
-                                basePSX + 'psx/vfx1.part009',
-                                basePSX + 'psx/vfx1.part010',
-                                basePSX + 'psx/vfx1.part011',
-                                basePSX + 'psx/vfx1.part012',
-                                basePSX + 'psx/vfx1.part013'
-                            ]
-                        }
-                    ]
-                },
-
-                {
-                    nombre: 'Macross VF-X2',
-                    core: 'psx',
-                    bios: basePSX + 'psx/SCPH1001.BIN',
-                    partes: [
-                        {
-                            disco: 1,
-                            archivos: [
-                                basePSX + 'psx/vfx2.part000',
-                                basePSX + 'psx/vfx2.part001',
-                                basePSX + 'psx/vfx2.part002',
-                                basePSX + 'psx/vfx2.part003',
-                                basePSX + 'psx/vfx2.part004',
-                                basePSX + 'psx/vfx2.part005',
-                                basePSX + 'psx/vfx2.part006',
-                                basePSX + 'psx/vfx2.part007',
-                                basePSX + 'psx/vfx2.part008'
-                            ]
-                        }
-                    ]
-                },
-
-                {
-                    nombre: 'Macross Plus: Edición de videojuego',
-                    core: 'psx',
-                    bios: basePSX + 'psx/SCPH1001.BIN',
-                    partes: [
-                        {
-                            disco: 1,
-                            archivos: [
-                                basePSX + 'psx/plus.part000',
-                                basePSX + 'psx/plus.part001',
-                                basePSX + 'psx/plus.part002',
-                                basePSX + 'psx/plus.part003',
-                                basePSX + 'psx/plus.part004',
-                                basePSX + 'psx/plus.part005',
-                                basePSX + 'psx/plus.part006',
-                                basePSX + 'psx/plus.part007',
-                                basePSX + 'psx/plus.part008',
-                                basePSX + 'psx/plus.part009',
-                                basePSX + 'psx/plus.part010',
-                                basePSX + 'psx/plus.part011',
-                                basePSX + 'psx/plus.part012',
-                                basePSX + 'psx/plus.part013',
-                                basePSX + 'psx/plus.part014',
-                                basePSX + 'psx/plus.part015'
-                            ]
-                        }
-                    ]
-                }
-            ]
+        const sistemas = {
+            nes: { catalogo: 'nes.json', base: romBases.nes, core: 'nes' },
+            snes: { catalogo: 'snes.json', base: romBases.snes, core: 'snes' },
+            gbc: { catalogo: 'gbc.json', base: romBases.gbc, core: 'gambatte' },
+            wonderswan: { catalogo: 'wonderswan.json', base: romBases.wonderswan, core: 'ws' },
+            genesis: { catalogo: 'genesis.json', base: romBases.genesis, core: 'segaMD' },
+            mame: { catalogo: 'mame.json', base: romBases.mame, core: 'arcade' },
+            psx: {
+                catalogo: 'psx.json',
+                base: basePSX,
+                partesPath: 'psx/',
+                core: 'psx'
+            }
         };
 
+        const juegos = {};
+
+        function codificarRuta(ruta) {
+            return ruta.split('/').map(encodeURIComponent).join('/');
+        }
+
+        async function cargarCatalogo(consola) {
+            if (juegos[consola]) {
+                return juegos[consola];
+            }
+
+            const sistema = sistemas[consola];
+            if (!sistema) {
+                throw new Error(`No hay configuración para la consola ${consola}.`);
+            }
+
+            const respuesta = await fetch(`data/catalogos/${sistema.catalogo}`);
+            if (!respuesta.ok) {
+                throw new Error(`No se pudo cargar data/catalogos/${sistema.catalogo} (HTTP ${respuesta.status}).`);
+            }
+
+            const catalogo = await respuesta.json();
+            if (!Array.isArray(catalogo.juegos)) {
+                throw new Error(`El archivo ${sistema.catalogo} no contiene una lista "juegos" válida.`);
+            }
+
+            juegos[consola] = catalogo.juegos.map(definicion => {
+                const juego = {
+                    nombre: definicion.titulo,
+                    core: definicion.core || sistema.core
+                };
+
+                if (definicion.archivo) {
+                    juego.archivo = sistema.base + encodeURIComponent(definicion.archivo);
+                }
+
+                if (definicion.bios) {
+                    juego.bios = sistema.base + codificarRuta(definicion.bios);
+                }
+
+                if (Array.isArray(definicion.partes)) {
+                    juego.partes = definicion.partes.map(disco => ({
+                        disco: disco.disco,
+                        archivos: disco.archivos.map(archivo =>
+                            sistema.base + codificarRuta(`${sistema.partesPath || ''}${archivo}`)
+                        )
+                    }));
+                }
+
+                return juego;
+            });
+
+            return juegos[consola];
+        }
         const params = new URLSearchParams(window.location.search);
 
         /* ==========================================
@@ -741,23 +531,39 @@
         /* ==========================================
            ACTUALIZAR LISTA DE JUEGOS
            ========================================== */
-        function actualizarJuegos() {
+        async function actualizarJuegos() {
             const consola = document.getElementById('consola').value;
             const selectJuego = document.getElementById('juego');
 
-            selectJuego.innerHTML =
-                '<option value="">Selecciona juego</option>';
+            selectJuego.innerHTML = '<option value="">Cargando juegos...</option>';
+            selectJuego.disabled = true;
 
-            if (consola && juegos[consola]) {
-                juegos[consola].forEach((juego, i) => {
+            if (!consola) {
+                selectJuego.innerHTML = '<option value="">Selecciona juego</option>';
+                selectJuego.disabled = false;
+                return;
+            }
+
+            try {
+                const lista = await cargarCatalogo(consola);
+                if (document.getElementById('consola').value !== consola) {
+                    return;
+                }
+
+                selectJuego.innerHTML = '<option value="">Selecciona juego</option>';
+                lista.forEach((juego, i) => {
                     const option = document.createElement('option');
                     option.value = i;
                     option.textContent = juego.nombre;
                     selectJuego.appendChild(option);
                 });
+            } catch (error) {
+                console.error(error);
+                selectJuego.innerHTML = '<option value="">No se pudo cargar la lista</option>';
+            } finally {
+                selectJuego.disabled = false;
             }
         }
-
         /* ==========================================
            ENSAMBLAR JUEGOS DE PLAYSTATION
            ========================================== */
@@ -895,11 +701,14 @@
             const consola = document.getElementById('consola').value;
             const idx = document.getElementById('juego').value;
 
-            if (!consola || idx === '') {
+            if (!consola || idx === '' || !juegos[consola]) {
                 return;
             }
 
             const juego = juegos[consola][idx];
+            if (!juego) {
+                return;
+            }
 
             if (juego.partes) {
                 ensamblarDiscos(juego);
@@ -909,7 +718,6 @@
                 document.getElementById('menu').style.display = 'none';
 
                 crearContenedorJuego();
-
                 document.getElementById('btnVolver').style.display = 'block';
 
                 window.EJS_player = '#game';
@@ -937,7 +745,6 @@
                 window.location.href = url;
             }
         }
-
         /* ==========================================
            EVENTOS DE LOS CONTROLES
            ========================================== */
