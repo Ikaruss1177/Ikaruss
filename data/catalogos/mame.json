@@ -1,0 +1,16 @@
+{
+  "juegos": [
+    {
+      "titulo": "Macross II",
+      "archivo": "macross2.zip"
+    },
+    {
+      "titulo": "Macross Plus",
+      "archivo": "macrossplus.zip"
+    },
+    {
+      "titulo": "Super Space Fortress Macross: ¿Recuerdas el amor?",
+      "archivo": "macrossdyrl.zip"
+    }
+  ]
+}

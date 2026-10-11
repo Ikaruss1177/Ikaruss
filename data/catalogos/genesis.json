@@ -1,0 +1,32 @@
+{
+  "juegos": [
+    {
+      "titulo": "Dragon Ball Z: Leyendas de Poder",
+      "archivo": "DBZ.SMD"
+    },
+    {
+      "titulo": "El mundo perdido: Jurassic Park",
+      "archivo": "LOSTWRLD.SMD"
+    },
+    {
+      "titulo": "Heavy Unit: Robot blindado",
+      "archivo": "Heavy Unit(Japan).SMD"
+    },
+    {
+      "titulo": "Jurassic Park",
+      "archivo": "JURASSIC.SMD"
+    },
+    {
+      "titulo": "Sailor Moon",
+      "archivo": "SAILORM.SMD"
+    },
+    {
+      "titulo": "James Bond 007: El Duelo",
+      "archivo": "007 James Bond - The Duel (Japan).SMD"
+    },
+    {
+      "titulo": "BattleTech: Un juego de combate blindado",
+      "archivo": "BattleTech - A Game of Armored Combat (USA).SMD"
+    }
+  ]
+}

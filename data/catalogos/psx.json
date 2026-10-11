@@ -1,0 +1,108 @@
+{
+  "juegos": [
+    {
+      "bios": "psx/SCPH1001.BIN",
+      "titulo": "Macross: ¿Recuerdas el amor?",
+      "partes": [
+        {
+          "archivos": [
+            "disc1.part000",
+            "disc1.part001",
+            "disc1.part002",
+            "disc1.part003",
+            "disc1.part004",
+            "disc1.part005"
+          ],
+          "disco": 1
+        },
+        {
+          "archivos": [
+            "disc2.part000",
+            "disc2.part001",
+            "disc2.part002",
+            "disc2.part003",
+            "disc2.part004",
+            "disc2.part005",
+            "disc2.part006",
+            "disc2.part007",
+            "disc2.part008",
+            "disc2.part009"
+          ],
+          "disco": 2
+        }
+      ]
+    },
+    {
+      "bios": "psx/SCPH1001.BIN",
+      "titulo": "Macross: Misión digital VF-X",
+      "partes": [
+        {
+          "archivos": [
+            "vfx1.part000",
+            "vfx1.part001",
+            "vfx1.part002",
+            "vfx1.part003",
+            "vfx1.part004",
+            "vfx1.part005",
+            "vfx1.part006",
+            "vfx1.part007",
+            "vfx1.part008",
+            "vfx1.part009",
+            "vfx1.part010",
+            "vfx1.part011",
+            "vfx1.part012",
+            "vfx1.part013"
+          ],
+          "disco": 1
+        }
+      ]
+    },
+    {
+      "bios": "psx/SCPH1001.BIN",
+      "titulo": "Macross VF-X2",
+      "partes": [
+        {
+          "archivos": [
+            "vfx2.part000",
+            "vfx2.part001",
+            "vfx2.part002",
+            "vfx2.part003",
+            "vfx2.part004",
+            "vfx2.part005",
+            "vfx2.part006",
+            "vfx2.part007",
+            "vfx2.part008"
+          ],
+          "disco": 1
+        }
+      ]
+    },
+    {
+      "bios": "psx/SCPH1001.BIN",
+      "titulo": "Macross Plus: Edición de videojuego",
+      "partes": [
+        {
+          "archivos": [
+            "plus.part000",
+            "plus.part001",
+            "plus.part002",
+            "plus.part003",
+            "plus.part004",
+            "plus.part005",
+            "plus.part006",
+            "plus.part007",
+            "plus.part008",
+            "plus.part009",
+            "plus.part010",
+            "plus.part011",
+            "plus.part012",
+            "plus.part013",
+            "plus.part014",
+            "plus.part015"
+          ],
+          "disco": 1
+        }
+      ]
+    }
+  ]
+}

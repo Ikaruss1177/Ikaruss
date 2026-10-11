@@ -1,0 +1,52 @@
+{
+  "juegos": [
+    {
+      "titulo": "Macross Scrambled Valkyrie",
+      "archivo": "Choujikuu Yousai Macross - Scrambled Valkyrie (Japan).sfc"
+    },
+    {
+      "titulo": "Asterix & Obelix",
+      "archivo": "Asterix & Obelix.smc"
+    },
+    {
+      "titulo": "Chrono Trigger",
+      "archivo": "Chrono Trigger.smc"
+    },
+    {
+      "titulo": "Marvel Super Heroes: La guerra de las gemas",
+      "archivo": "Marvel Super Heroes - War of the Gems.smc"
+    },
+    {
+      "titulo": "Ranma 1/2: El tesoro de la banda del gato rojo (español)",
+      "archivo": "Ranma Nibunnoichi - Akanekodan Teki Hihou (J) [T+Spa100%_Emunixs].smc"
+    },
+    {
+      "titulo": "Ranma 1/2: Danza desenfrenada de técnicas supremas",
+      "archivo": "Ranma Nibunnoichi - Chougi Ranbu Hen (J) [o1].smc"
+    },
+    {
+      "titulo": "Ranma 1/2: El puzle de piedra, papel y tijera",
+      "archivo": "Ranma Nibunnoichi - Gu Choki Ougi Jaanken (J) [h2C].smc"
+    },
+    {
+      "titulo": "Ranma 1/2: Combate encarnizado",
+      "archivo": "Ranma Nibunnoichi - Hard Battle (U) [!].smc"
+    },
+    {
+      "titulo": "Sunset Riders",
+      "archivo": "Sunset Riders (U).smc"
+    },
+    {
+      "titulo": "X-Men: Apocalipsis mutante",
+      "archivo": "X-Men Mutant Apocalypse.smc"
+    },
+    {
+      "archivo": "Metal Warriors (USA).sfc",
+      "titulo": "Metal Warriors"
+    },
+    {
+      "archivo": "Cybernator (U) (With Sound Test).smc",
+      "titulo": "Cybernator (aka Valken)"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "juegos": [
+    {
+      "titulo": "Digimon: Monstruo digital",
+      "archivo": "Digimon - Ver. WonderSwan (Asia).ws"
+    },
+    {
+      "titulo": "Macross: Canción de amor verdadero",
+      "archivo": "Macross - True Love Song (Japan).ws"
+    },
+    {
+      "titulo": "Cardcaptor Sakura: Las cartas Clow",
+      "archivo": "Cardcaptor Sakura - Sakura to Fushigi na Clow Card (Japan).ws"
+    },
+    {
+      "titulo": "SD Gundam: Batalla emocional",
+      "archivo": "SD Gundam - Emotional Jam (Japan).ws"
+    }
+  ]
+}

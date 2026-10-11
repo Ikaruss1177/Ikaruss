@@ -1,0 +1,20 @@
+{
+  "juegos": [
+    {
+      "titulo": "42 Juegos en 1",
+      "archivo": "42-in-1.nes"
+    },
+    {
+      "titulo": "SDF Macross",
+      "archivo": "Chou Jikuu Yousai - Macross (J).nes"
+    },
+    {
+      "titulo": "Saint Seiya vs Los Caballeros del Zodiaco",
+      "archivo": "Saint Seiya - Ougon Densetsu (Spanish v1.0)(Juan).nes"
+    },
+    {
+      "titulo": "Saint Seiya vs Los Caballeros del Zodiaco 2",
+      "archivo": "Saint Seiya - Ougon Densetsu Kanketsu Hen (English v1.01).nes"
+    }
+  ]
+}
