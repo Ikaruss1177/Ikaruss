@@ -5,27 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikaruss Retrogaming Zone</title>
+    <link rel="stylesheet" href="https://bitacoramegaroad.github.io/css/indexstyle.css">
 
     <style>
-        /* ==========================================
-           FUENTE CONTHRAX
-           ========================================== */
-        @font-face {
-            font-family: 'Conthrax';
-            src: url('https://ikaruss1177.github.io/Ikaruss/conthrax-sb.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
         /* ==========================================
            CONFIGURACIÓN GENERAL
            ========================================== */
         :root {
-            --cyan: #00ffcc;
-            --blue: #0077b6;
-            --dark: #081219;
-            --panel: rgba(5, 9, 14, 0.88);
+            --cyan: var(--mr-accent, #00ffcc);
+            --blue: var(--mr-border, #22262a);
+            --dark: var(--mr-bg, #0b0c0d);
+            --panel: rgba(var(--mr-surface-rgb, 20, 22, 25), 0.82);
         }
 
         * {
@@ -34,26 +24,21 @@
 
         html {
             min-height: 100%;
-            background-color: #05090e;
+            background-color: var(--mr-bg, #0b0c0d);
         }
 
         body {
             margin: 0;
             min-height: 100vh;
-            background-color: #05090e;
-            background-image: url('https://ikaruss1177.github.io/Ikaruss/Galaxia.jpg');
+            padding: 4vh 2vw;
+            background-color: var(--mr-bg, #0b0c0d);
+            background-image: url('https://bitacoramegaroad.github.io/img/Galaxia.jpg');
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            color: var(--cyan);
-            font-family: 'Conthrax', monospace, sans-serif;
-        }
-
-        /* Texto cian en la interfaz */
-        body,
-        body * {
-            color: var(--cyan);
+            color: var(--mr-text, #e0e0e0);
+            font-family: var(--mr-font-body, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif);
         }
 
         /* ==========================================
@@ -61,31 +46,41 @@
            ========================================== */
         #header {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            padding: 20px;
+            gap: 0;
+            padding: 5vh 2vw;
             background: var(--panel);
-            border-bottom: 1px solid var(--blue);
+            border-bottom: 2px solid var(--mr-border, #22262a);
+            text-align: center;
         }
 
         #header img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
+            display: block;
+            width: 100%;
+            max-width: 650px;
+            height: auto;
+            margin: 0 auto;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+        }
+
+        #header .logo-link {
+            display: inline-block;
+            width: 100%;
+            max-width: 650px;
         }
 
         #header h1 {
-            margin: 0 15px;
+            margin: 20px 0 0;
             color: var(--cyan) !important;
-            font-family: 'Conthrax', monospace, sans-serif;
-            font-size: clamp(16px, 2.5vw, 25px);
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
+            font-size: clamp(1.3rem, 3vw, 2rem);
             font-weight: normal;
             letter-spacing: 2px;
             text-align: center;
             text-transform: uppercase;
-            text-shadow: none !important;
+            text-shadow: 0 0 10px rgba(var(--mr-accent-rgb, 0, 255, 204), 0.35);
         }
 
         /* ==========================================
@@ -110,18 +105,18 @@
             min-width: 180px;
             max-width: 100%;
             padding: 11px 12px;
-            background: #081219;
-            color: var(--cyan) !important;
-            font-family: 'Conthrax', monospace, sans-serif;
+            background: rgba(5, 9, 14, 0.88);
+            color: var(--mr-accent, #00ffcc) !important;
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
             font-size: 12px;
-            border: 1px solid var(--blue);
-            border-radius: 3px;
-            cursor: pointer;
+            border: 1px solid var(--mr-border, #22262a);
+            border-radius: 4px;
+            cursor: none !important;
             color-scheme: dark;
         }
 
         select option {
-            background: #081219;
+            background: rgba(5, 9, 14, 0.88);
             color: var(--cyan);
         }
 
@@ -130,21 +125,22 @@
            ========================================== */
         button {
             padding: 11px 20px;
-            background: #081219;
-            color: var(--cyan) !important;
-            font-family: 'Conthrax', monospace, sans-serif;
+            background: rgba(5, 9, 14, 0.88);
+            color: var(--mr-accent, #00ffcc) !important;
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
             font-size: 12px;
             font-weight: normal;
-            border: 1px solid var(--blue);
-            border-radius: 3px;
+            border: 1px solid var(--mr-border, #22262a);
+            border-radius: 50px;
             cursor: pointer;
             text-shadow: none !important;
             transition: all 0.3s ease;
         }
 
         button:hover {
-            background: #12313d;
-            border-color: var(--cyan);
+            background: rgba(var(--mr-accent-rgb, 0, 255, 204), 0.08);
+            border-color: var(--mr-accent, #00ffcc);
+            box-shadow: 0 0 12px rgba(var(--mr-accent-rgb, 0, 255, 204), 0.25);
         }
 
         /* ==========================================
@@ -169,7 +165,7 @@
             border-radius: 50px;
 
             color: var(--cyan) !important;
-            font-family: 'Conthrax', monospace, sans-serif;
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
             font-size: 12px;
             font-weight: normal;
             text-transform: uppercase;
@@ -187,8 +183,8 @@
                 rgba(23, 40, 58, 0.75) 100%
             );
 
-            border-color: var(--cyan);
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+            border-color: var(--mr-accent, #00ffcc);
+            box-shadow: 0 0 15px rgba(var(--mr-accent-rgb, 0, 255, 204), 0.4);
         }
 
         /* ==========================================
@@ -204,7 +200,7 @@
             padding: 12px;
             overflow: auto;
             background: transparent !important;
-            color: var(--cyan) !important;
+            color: var(--mr-text-soft, #b9c3cd) !important;
         }
 
         /* Contenedor del juego: hasta 1200 px */
@@ -236,11 +232,11 @@
         #btnVolver {
             display: none;
             margin: 20px auto;
-            background: #081219;
-            color: var(--cyan) !important;
-            border: 1px solid var(--blue);
+            background: rgba(5, 9, 14, 0.88);
+            color: var(--mr-accent, #00ffcc) !important;
+            border: 1px solid var(--mr-border, #22262a);
             border-radius: 50px;
-            font-family: 'Conthrax', monospace, sans-serif;
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
         }
 
         /* ==========================================
@@ -253,7 +249,7 @@
         #progress,
         #mensaje {
             color: var(--cyan) !important;
-            font-family: 'Conthrax', monospace, sans-serif;
+            font-family: var(--mr-font-display, 'Conthrax', monospace, sans-serif);
         }
 
         #barra {
@@ -269,17 +265,12 @@
             }
 
             #header {
-                gap: 8px;
-                padding: 14px 8px;
-            }
-
-            #header img {
-                height: 32px;
+                padding: 4vh 4vw;
             }
 
             #header h1 {
-                margin: 0 4px;
-                font-size: 14px;
+                margin-top: 16px;
+                font-size: clamp(1.1rem, 5vw, 1.5rem);
                 letter-spacing: 1px;
             }
 
@@ -320,11 +311,13 @@
 </head>
 
 <body>
-    <div id="header">
-        <img src="Megaroad%20logo.png" alt="Megaroad">
+    <div class="wrapper">
+    <header id="header" class="macross-header">
+        <a class="logo-link" href="https://bitacoramegaroad.github.io/" aria-label="Ir a La Bitácora del Megaroad">
+            <img class="logo" src="Megaroad%20logo.png" alt="La Bitácora del Megaroad">
+        </a>
         <h1>Ikaruss Retrogaming Zone</h1>
-        <img src="Megaroad%20logo.png" alt="Megaroad">
-    </div>
+    </header>
 
     <div id="menu">
         <div id="selector">
@@ -350,16 +343,64 @@
     <a
         href="https://bitacoramegaroad.github.io/"
         id="btnBitacora"
+        class="site-button"
     >Volver a La Bitácora</a>
 
     <div id="emulador"></div>
 
     <button id="btnVolver">Volver al menú</button>
+    </div>
+
+    <div class="custom-cursor" aria-hidden="true">
+        <svg class="reticle-svg" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+            <path d="M28 6 L2 18 L2 62 L28 74" fill="none" stroke="#00ffcc" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter" />
+            <path d="M72 6 L98 18 L98 62 L72 74" fill="none" stroke="#00ffcc" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter" />
+            <rect class="corner-square" x="79" y="75.5" width="13" height="20" fill="#00ffcc" transform="rotate(63 85 70)" />
+        </svg>
+        <div class="lock-text">LOCK ON</div>
+    </div>
 
     <script>
-        const base = window.location.href.includes('discordsays.com')
+        const customCursor = document.querySelector('.custom-cursor');
+        const finePointer = window.matchMedia('(pointer: fine)');
+
+        function syncCustomCursor() {
+            if (customCursor) {
+                customCursor.style.display = 'none';
+            }
+        }
+
+        syncCustomCursor();
+        finePointer.addEventListener?.('change', syncCustomCursor);
+
+        if (customCursor && finePointer.matches) {
+            document.addEventListener('mousemove', (event) => {
+                customCursor.style.left = `${event.clientX}px`;
+                customCursor.style.top = `${event.clientY}px`;
+                customCursor.style.display = 'block';
+            });
+
+            document.querySelectorAll('a, button, select').forEach((element) => {
+                element.addEventListener('mouseenter', () => customCursor.classList.add('hover'));
+                element.addEventListener('mouseleave', () => customCursor.classList.remove('hover'));
+            });
+        }
+    </script>
+
+    <script>
+        const isDiscordActivity = window.location.href.includes('discordsays.com');
+        const base = isDiscordActivity
             ? '/roms/'
             : 'https://ikaruss1177.github.io/Ikaruss/';
+
+        const romBases = {
+            nes: isDiscordActivity ? base : base + 'roms%20nes/',
+            snes: isDiscordActivity ? base : base + 'roms%20snes/',
+            gbc: isDiscordActivity ? base : base + 'roms%20gameboy/',
+            wonderswan: isDiscordActivity ? base : base + 'roms%20bandai/',
+            genesis: isDiscordActivity ? base : base + 'roms%20sega/',
+            mame: isDiscordActivity ? base : base + 'roms%20mame/'
+        };
 
         const basePSX = window.location.href.includes('discordsays.com')
             ? '/psx/'
@@ -369,22 +410,22 @@
             nes: [
                 {
                     nombre: '42 Juegos en 1',
-                    archivo: base + '42-in-1.nes',
+                    archivo: romBases.nes + '42-in-1.nes',
                     core: 'nes'
                 },
                 {
                     nombre: 'SDF Macross',
-                    archivo: base + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes',
+                    archivo: romBases.nes + 'Chou%20Jikuu%20Yousai%20-%20Macross%20(J).nes',
                     core: 'nes'
                 },
                 {
                     nombre: 'Saint Seiya vs Los Caballeros del Zodiaco',
-                    archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20(Spanish%20v1.0)(Juan).nes',
+                    archivo: romBases.nes + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20(Spanish%20v1.0)(Juan).nes',
                     core: 'nes'
                 },
                 {
                     nombre: 'Saint Seiya vs Los Caballeros del Zodiaco 2',
-                    archivo: base + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20Kanketsu%20Hen%20(English%20v1.01).nes',
+                    archivo: romBases.nes + 'Saint%20Seiya%20-%20Ougon%20Densetsu%20Kanketsu%20Hen%20(English%20v1.01).nes',
                     core: 'nes'
                 }
             ],
@@ -392,38 +433,83 @@
             snes: [
                 {
                     nombre: 'Macross Scrambled Valkyrie',
-                    archivo: base + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc',
+                    archivo: romBases.snes + 'Choujikuu%20Yousai%20Macross%20-%20Scrambled%20Valkyrie%20(Japan).sfc',
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Asterix & Obelix',
+                    archivo: romBases.snes + encodeURIComponent('Asterix & Obelix.smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Chrono Trigger',
+                    archivo: romBases.snes + encodeURIComponent('Chrono Trigger.smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Marvel Super Heroes: La guerra de las gemas',
+                    archivo: romBases.snes + encodeURIComponent('Marvel Super Heroes - War of the Gems.smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Ranma 1/2: El tesoro de la banda del gato rojo (español)',
+                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Akanekodan Teki Hihou (J) [T+Spa100%_Emunixs].smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Ranma 1/2: Danza desenfrenada de técnicas supremas',
+                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Chougi Ranbu Hen (J) [o1].smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Ranma 1/2: El puzle de piedra, papel y tijera',
+                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Gu Choki Ougi Jaanken (J) [h2C].smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Ranma 1/2: Combate encarnizado',
+                    archivo: romBases.snes + encodeURIComponent('Ranma Nibunnoichi - Hard Battle (U) [!].smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'Sunset Riders',
+                    archivo: romBases.snes + encodeURIComponent('Sunset Riders (U).smc'),
+                    core: 'snes'
+                },
+                {
+                    nombre: 'X-Men: Apocalipsis mutante',
+                    archivo: romBases.snes + encodeURIComponent('X-Men Mutant Apocalypse.smc'),
                     core: 'snes'
                 }
             ],
 
             gbc: [
                 {
-                    nombre: 'Macross 7: ¡Haz Vibrar la Galaxia!',
-                    archivo: base + 'Macross%207.gbc',
+                    nombre: 'Macross 7: ¡Haz vibrar la galaxia! (versión inglesa)',
+                    archivo: romBases.gbc + 'Macross%207%20english.gbc',
                     core: 'gambatte'
                 }
             ],
 
             wonderswan: [
                 {
-                    nombre: 'Digimon Digital Monster',
-                    archivo: base + 'Digimon%20-%20Ver.%20WonderSwan%20(Asia).ws',
+                    nombre: 'Digimon: Monstruo digital',
+                    archivo: romBases.wonderswan + 'Digimon%20-%20Ver.%20WonderSwan%20(Asia).ws',
                     core: 'ws'
                 },
                 {
-                    nombre: 'Macross: True Love Song',
-                    archivo: base + 'Macross%20-%20True%20Love%20Song%20(Japan).ws',
+                    nombre: 'Macross: Canción de amor verdadero',
+                    archivo: romBases.wonderswan + 'Macross%20-%20True%20Love%20Song%20(Japan).ws',
                     core: 'ws'
                 },
                 {
-                    nombre: 'Sakura Card Captor - Las Cartas Clow',
-                    archivo: base + 'Cardcaptor%20Sakura%20-%20Sakura%20to%20Fushigi%20na%20Clow%20Card%20(Japan).ws',
+                    nombre: 'Cardcaptor Sakura: Las cartas Clow',
+                    archivo: romBases.wonderswan + 'Cardcaptor%20Sakura%20-%20Sakura%20to%20Fushigi%20na%20Clow%20Card%20(Japan).ws',
                     core: 'ws'
                 },
                 {
-                    nombre: 'SD Gundam: Emotional Jam',
-                    archivo: base + 'SD%20Gundam%20-%20Emotional%20Jam%20(Japan).ws',
+                    nombre: 'SD Gundam: Batalla emocional',
+                    archivo: romBases.wonderswan + 'SD%20Gundam%20-%20Emotional%20Jam%20(Japan).ws',
                     core: 'ws'
                 }
             ],
@@ -431,27 +517,37 @@
             genesis: [
                 {
                     nombre: 'Dragon Ball Z: Leyendas de Poder',
-                    archivo: base + 'DBZ.SMD',
+                    archivo: romBases.genesis + 'DBZ.SMD',
                     core: 'segaMD'
                 },
                 {
-                    nombre: 'El Mundo Perdido - Jurassic Park',
-                    archivo: base + 'LOSTWRLD.SMD',
+                    nombre: 'El mundo perdido: Jurassic Park',
+                    archivo: romBases.genesis + 'LOSTWRLD.SMD',
                     core: 'segaMD'
                 },
                 {
-                    nombre: 'Heavy Unit Armored Robot',
-                    archivo: base + 'Heavy%20Unit(Japan).SMD',
+                    nombre: 'Heavy Unit: Robot blindado',
+                    archivo: romBases.genesis + 'Heavy%20Unit(Japan).SMD',
                     core: 'segaMD'
                 },
                 {
                     nombre: 'Jurassic Park',
-                    archivo: base + 'JURASSIC.SMD',
+                    archivo: romBases.genesis + 'JURASSIC.SMD',
                     core: 'segaMD'
                 },
                 {
                     nombre: 'Sailor Moon',
-                    archivo: base + 'SAILORM.SMD',
+                    archivo: romBases.genesis + 'SAILORM.SMD',
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'James Bond 007: El Duelo',
+                    archivo: romBases.genesis + encodeURIComponent('007 Shitou - The Duel (Japan).md'),
+                    core: 'segaMD'
+                },
+                {
+                    nombre: 'BattleTech: Un juego de combate blindado',
+                    archivo: romBases.genesis + encodeURIComponent('BattleTech - A Game of Armored Combat (USA).md'),
                     core: 'segaMD'
                 }
             ],
@@ -459,24 +555,24 @@
             mame: [
                 {
                     nombre: 'Macross II',
-                    archivo: base + 'macross2.zip',
+                    archivo: romBases.mame + 'macross2.zip',
                     core: 'arcade'
                 },
                 {
                     nombre: 'Macross Plus',
-                    archivo: base + 'macrossp.zip',
+                    archivo: romBases.mame + 'macrossplus.zip',
                     core: 'arcade'
                 },
                 {
-                    nombre: 'Super Space Fortress Macross: DYRL?',
-                    archivo: base + 'macross.zip',
+                    nombre: 'Super Space Fortress Macross: ¿Recuerdas el amor?',
+                    archivo: romBases.mame + 'macrossdyrl.zip',
                     core: 'arcade'
                 }
             ],
 
             psx: [
                 {
-                    nombre: 'Macross: Do You Remember Love?',
+                    nombre: 'Macross: ¿Recuerdas el amor?',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -510,7 +606,7 @@
                 },
 
                 {
-                    nombre: 'Macross Digital Mission VF-X',
+                    nombre: 'Macross: Misión digital VF-X',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
@@ -559,7 +655,7 @@
                 },
 
                 {
-                    nombre: 'Macross Plus - Game Edition',
+                    nombre: 'Macross Plus: Edición de videojuego',
                     core: 'psx',
                     bios: basePSX + 'psx/SCPH1001.BIN',
                     partes: [
