@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ikaruss Retrogaming Zone</title>
     <link rel="stylesheet" href="https://bitacoramegaroad.github.io/css/indexstyle.css">
+    <link rel="stylesheet" href="https://bitacoramegaroad.github.io/css/neon-logo.css">
 
     <style>
         /* ==========================================
@@ -63,6 +64,11 @@
             height: auto;
             margin: 0 auto;
             filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Logo neón (cargado desde el sitio principal) */
+        #header .neon-logo {
+            max-width: 430px;
         }
 
         #header .logo-link {
@@ -765,5 +771,7 @@
             }
         );
     </script>
+
+    <script src="https://bitacoramegaroad.github.io/js/neon-logo.js" onload="window.mountNeonLogo && window.mountNeonLogo()"></script>
 </body>
 </html>
